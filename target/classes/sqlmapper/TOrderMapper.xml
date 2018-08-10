@@ -1,0 +1,1716 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.songzhi.carInsure.web.dao.TOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.songzhi.carInsure.web.po.TOrder" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="includ_id" property="includId" jdbcType="VARCHAR" />
+    <result column="issue_code" property="issueCode" jdbcType="VARCHAR" />
+    <result column="Issue" property="issue" jdbcType="VARCHAR" />
+    <result column="trench_code" property="trenchCode" jdbcType="VARCHAR" />
+    <result column="trench" property="trench" jdbcType="VARCHAR" />
+    <result column="business_code" property="businessCode" jdbcType="VARCHAR" />
+    <result column="business" property="business" jdbcType="VARCHAR" />
+    <result column="service_code" property="serviceCode" jdbcType="VARCHAR" />
+    <result column="service" property="service" jdbcType="VARCHAR" />
+    <result column="salesman_code" property="salesmanCode" jdbcType="VARCHAR" />
+    <result column="salesman" property="salesman" jdbcType="VARCHAR" />
+    <result column="catalogue_code" property="catalogueCode" jdbcType="VARCHAR" />
+    <result column="catalogue" property="catalogue" jdbcType="VARCHAR" />
+    <result column="agency_code" property="agencyCode" jdbcType="VARCHAR" />
+    <result column="agency" property="agency" jdbcType="VARCHAR" />
+    <result column="chezhu_name" property="chezhuName" jdbcType="VARCHAR" />
+    <result column="chenzhu_card_code" property="chenzhuCardCode" jdbcType="VARCHAR" />
+    <result column="credentials_Type" property="credentialsType" jdbcType="VARCHAR" />
+    <result column="credentials" property="credentials" jdbcType="VARCHAR" />
+    <result column="chezhu_phone" property="chezhuPhone" jdbcType="VARCHAR" />
+    <result column="chezhu_code" property="chezhuCode" jdbcType="VARCHAR" />
+    <result column="chezhu_car" property="chezhuCar" jdbcType="VARCHAR" />
+    <result column="customer_code" property="customerCode" jdbcType="VARCHAR" />
+    <result column="customer" property="customer" jdbcType="VARCHAR" />
+    <result column="chezhu_age_code" property="chezhuAgeCode" jdbcType="VARCHAR" />
+    <result column="chezhu_age" property="chezhuAge" jdbcType="VARCHAR" />
+    <result column="chezhu_sex_code" property="chezhuSexCode" jdbcType="VARCHAR" />
+    <result column="chezhu_sex" property="chezhuSex" jdbcType="VARCHAR" />
+    <result column="chezhu_postcode" property="chezhuPostcode" jdbcType="VARCHAR" />
+    <result column="chezhu_location" property="chezhuLocation" jdbcType="VARCHAR" />
+    <result column="chezhu_emali" property="chezhuEmali" jdbcType="VARCHAR" />
+    <result column="insure_name" property="insureName" jdbcType="VARCHAR" />
+    <result column="voucher_code" property="voucherCode" jdbcType="VARCHAR" />
+    <result column="credentials_class" property="credentialsClass" jdbcType="VARCHAR" />
+    <result column="credentials_phone" property="credentialsPhone" jdbcType="VARCHAR" />
+    <result column="relation_phone" property="relationPhone" jdbcType="VARCHAR" />
+    <result column="filling_Application_code" property="fillingApplicationCode" jdbcType="VARCHAR" />
+    <result column="insure_nature" property="insureNature" jdbcType="VARCHAR" />
+    <result column="insure_age_code" property="insureAgeCode" jdbcType="VARCHAR" />
+    <result column="insure_age" property="insureAge" jdbcType="VARCHAR" />
+    <result column="insure_sex_code" property="insureSexCode" jdbcType="VARCHAR" />
+    <result column="insure_sex" property="insureSex" jdbcType="VARCHAR" />
+    <result column="insure_postcode" property="insurePostcode" jdbcType="VARCHAR" />
+    <result column="insure_location" property="insureLocation" jdbcType="VARCHAR" />
+    <result column="insure_emali" property="insureEmali" jdbcType="VARCHAR" />
+    <result column="owner_name" property="ownerName" jdbcType="VARCHAR" />
+    <result column="credentials_code" property="credentialsCode" jdbcType="VARCHAR" />
+    <result column="card_class" property="cardClass" jdbcType="VARCHAR" />
+    <result column="card_phone" property="cardPhone" jdbcType="VARCHAR" />
+    <result column="owner_phone" property="ownerPhone" jdbcType="VARCHAR" />
+    <result column="name_nature_code" property="nameNatureCode" jdbcType="VARCHAR" />
+    <result column="person_nature" property="personNature" jdbcType="VARCHAR" />
+    <result column="owner_age_code" property="ownerAgeCode" jdbcType="VARCHAR" />
+    <result column="owner_age" property="ownerAge" jdbcType="VARCHAR" />
+    <result column="owner_sex_code" property="ownerSexCode" jdbcType="VARCHAR" />
+    <result column="owner_sex" property="ownerSex" jdbcType="VARCHAR" />
+    <result column="owner_postcode" property="ownerPostcode" jdbcType="VARCHAR" />
+    <result column="owner_location" property="ownerLocation" jdbcType="VARCHAR" />
+    <result column="owner_emali" property="ownerEmali" jdbcType="VARCHAR" />
+    <result column="business_insure" property="businessInsure" jdbcType="VARCHAR" />
+    <result column="business_slip" property="businessSlip" jdbcType="VARCHAR" />
+    <result column="business_time" property="businessTime" jdbcType="TIMESTAMP" />
+    <result column="business_jie_time" property="businessJieTime" jdbcType="TIMESTAMP" />
+    <result column="business_money" property="businessMoney" jdbcType="DOUBLE" />
+    <result column="strong_bao" property="strongBao" jdbcType="VARCHAR" />
+    <result column="strong_dan" property="strongDan" jdbcType="VARCHAR" />
+    <result column="strong_time" property="strongTime" jdbcType="TIMESTAMP" />
+    <result column="money_jiaoqiang_time" property="moneyJiaoqiangTime" jdbcType="TIMESTAMP" />
+    <result column="money_jiaoqiang" property="moneyJiaoqiang" jdbcType="DOUBLE" />
+    <result column="boats_tallage" property="boatsTallage" jdbcType="DOUBLE" />
+    <result column="rate" property="rate" jdbcType="DOUBLE" />
+    <result column="sum_coefficient" property="sumCoefficient" jdbcType="DOUBLE" />
+    <result column="communication_treatment" property="communicationTreatment" jdbcType="DOUBLE" />
+    <result column="transportation_coefficient" property="transportationCoefficient" jdbcType="DOUBLE" />
+    <result column="underwriting_product" property="underwritingProduct" jdbcType="DOUBLE" />
+    <result column="underwriting_coefficient" property="underwritingCoefficient" jdbcType="DOUBLE" />
+    <result column="ditch_coefficient" property="ditchCoefficient" jdbcType="DOUBLE" />
+    <result column="f_price_shang" property="fPriceShang" jdbcType="DOUBLE" />
+    <result column="f_price_jiao" property="fPriceJiao" jdbcType="DOUBLE" />
+    <result column="money_he" property="moneyHe" jdbcType="DOUBLE" />
+    <result column="dian_slip" property="dianSlip" jdbcType="INTEGER" />
+    <result column="dian_ticket" property="dianTicket" jdbcType="INTEGER" />
+    <result column="dian_emali" property="dianEmali" jdbcType="VARCHAR" />
+    <result column="sign_bao" property="signBao" jdbcType="INTEGER" />
+    <result column="sw_number" property="swNumber" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="INTEGER" />
+    <result column="payment" property="payment" jdbcType="INTEGER" />
+    <result column="pfo_number" property="pfoNumber" jdbcType="VARCHAR" />
+    <result column="payment_status" property="paymentStatus" jdbcType="INTEGER" />
+    <result column="refundable_status" property="refundableStatus" jdbcType="INTEGER" />
+    <result column="payment_time" property="paymentTime" jdbcType="TIMESTAMP" />
+    <result column="refundable_time" property="refundableTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modified_user" property="modifiedUser" jdbcType="VARCHAR" />
+    <result column="modified_time" property="modifiedTime" jdbcType="TIMESTAMP" />
+    <result column="car_no" property="carNo" jdbcType="VARCHAR" />
+    <result column="vin" property="vin" jdbcType="VARCHAR" />
+    <result column="engine_no" property="engineNo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, includ_id, issue_code, Issue, trench_code, trench, business_code, business, service_code, 
+    service, salesman_code, salesman, catalogue_code, catalogue, agency_code, agency, 
+    chezhu_name, chenzhu_card_code, credentials_Type, credentials, chezhu_phone, chezhu_code, 
+    chezhu_car, customer_code, customer, chezhu_age_code, chezhu_age, chezhu_sex_code, 
+    chezhu_sex, chezhu_postcode, chezhu_location, chezhu_emali, insure_name, voucher_code, 
+    credentials_class, credentials_phone, relation_phone, filling_Application_code, insure_nature, 
+    insure_age_code, insure_age, insure_sex_code, insure_sex, insure_postcode, insure_location, 
+    insure_emali, owner_name, credentials_code, card_class, card_phone, owner_phone, 
+    name_nature_code, person_nature, owner_age_code, owner_age, owner_sex_code, owner_sex, 
+    owner_postcode, owner_location, owner_emali, business_insure, business_slip, business_time, 
+    business_jie_time, business_money, strong_bao, strong_dan, strong_time, money_jiaoqiang_time, 
+    money_jiaoqiang, boats_tallage, rate, sum_coefficient, communication_treatment, transportation_coefficient, 
+    underwriting_product, underwriting_coefficient, ditch_coefficient, f_price_shang, 
+    f_price_jiao, money_he, dian_slip, dian_ticket, dian_emali, sign_bao, sw_number, 
+    order_status, payment, pfo_number, payment_status, refundable_status, payment_time, 
+    refundable_time, create_user, create_time, modified_user, modified_time, car_no, 
+    vin, engine_no
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.songzhi.carInsure.web.po.TOrderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.songzhi.carInsure.web.po.TOrderExample" >
+    delete from t_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.songzhi.carInsure.web.po.TOrder" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_order (includ_id, issue_code, Issue, 
+      trench_code, trench, business_code, 
+      business, service_code, service, 
+      salesman_code, salesman, catalogue_code, 
+      catalogue, agency_code, agency, 
+      chezhu_name, chenzhu_card_code, credentials_Type, 
+      credentials, chezhu_phone, chezhu_code, 
+      chezhu_car, customer_code, customer, 
+      chezhu_age_code, chezhu_age, chezhu_sex_code, 
+      chezhu_sex, chezhu_postcode, chezhu_location, 
+      chezhu_emali, insure_name, voucher_code, 
+      credentials_class, credentials_phone, relation_phone, 
+      filling_Application_code, insure_nature, insure_age_code, 
+      insure_age, insure_sex_code, insure_sex, 
+      insure_postcode, insure_location, insure_emali, 
+      owner_name, credentials_code, card_class, 
+      card_phone, owner_phone, name_nature_code, 
+      person_nature, owner_age_code, owner_age, 
+      owner_sex_code, owner_sex, owner_postcode, 
+      owner_location, owner_emali, business_insure, 
+      business_slip, business_time, business_jie_time, 
+      business_money, strong_bao, strong_dan, 
+      strong_time, money_jiaoqiang_time, money_jiaoqiang, 
+      boats_tallage, rate, sum_coefficient, 
+      communication_treatment, transportation_coefficient, 
+      underwriting_product, underwriting_coefficient, 
+      ditch_coefficient, f_price_shang, f_price_jiao, 
+      money_he, dian_slip, dian_ticket, 
+      dian_emali, sign_bao, sw_number, 
+      order_status, payment, pfo_number, 
+      payment_status, refundable_status, payment_time, 
+      refundable_time, create_user, create_time, 
+      modified_user, modified_time, car_no, 
+      vin, engine_no)
+    values (#{includId,jdbcType=VARCHAR}, #{issueCode,jdbcType=VARCHAR}, #{issue,jdbcType=VARCHAR}, 
+      #{trenchCode,jdbcType=VARCHAR}, #{trench,jdbcType=VARCHAR}, #{businessCode,jdbcType=VARCHAR}, 
+      #{business,jdbcType=VARCHAR}, #{serviceCode,jdbcType=VARCHAR}, #{service,jdbcType=VARCHAR}, 
+      #{salesmanCode,jdbcType=VARCHAR}, #{salesman,jdbcType=VARCHAR}, #{catalogueCode,jdbcType=VARCHAR}, 
+      #{catalogue,jdbcType=VARCHAR}, #{agencyCode,jdbcType=VARCHAR}, #{agency,jdbcType=VARCHAR}, 
+      #{chezhuName,jdbcType=VARCHAR}, #{chenzhuCardCode,jdbcType=VARCHAR}, #{credentialsType,jdbcType=VARCHAR}, 
+      #{credentials,jdbcType=VARCHAR}, #{chezhuPhone,jdbcType=VARCHAR}, #{chezhuCode,jdbcType=VARCHAR}, 
+      #{chezhuCar,jdbcType=VARCHAR}, #{customerCode,jdbcType=VARCHAR}, #{customer,jdbcType=VARCHAR}, 
+      #{chezhuAgeCode,jdbcType=VARCHAR}, #{chezhuAge,jdbcType=VARCHAR}, #{chezhuSexCode,jdbcType=VARCHAR}, 
+      #{chezhuSex,jdbcType=VARCHAR}, #{chezhuPostcode,jdbcType=VARCHAR}, #{chezhuLocation,jdbcType=VARCHAR}, 
+      #{chezhuEmali,jdbcType=VARCHAR}, #{insureName,jdbcType=VARCHAR}, #{voucherCode,jdbcType=VARCHAR}, 
+      #{credentialsClass,jdbcType=VARCHAR}, #{credentialsPhone,jdbcType=VARCHAR}, #{relationPhone,jdbcType=VARCHAR}, 
+      #{fillingApplicationCode,jdbcType=VARCHAR}, #{insureNature,jdbcType=VARCHAR}, #{insureAgeCode,jdbcType=VARCHAR}, 
+      #{insureAge,jdbcType=VARCHAR}, #{insureSexCode,jdbcType=VARCHAR}, #{insureSex,jdbcType=VARCHAR}, 
+      #{insurePostcode,jdbcType=VARCHAR}, #{insureLocation,jdbcType=VARCHAR}, #{insureEmali,jdbcType=VARCHAR}, 
+      #{ownerName,jdbcType=VARCHAR}, #{credentialsCode,jdbcType=VARCHAR}, #{cardClass,jdbcType=VARCHAR}, 
+      #{cardPhone,jdbcType=VARCHAR}, #{ownerPhone,jdbcType=VARCHAR}, #{nameNatureCode,jdbcType=VARCHAR}, 
+      #{personNature,jdbcType=VARCHAR}, #{ownerAgeCode,jdbcType=VARCHAR}, #{ownerAge,jdbcType=VARCHAR}, 
+      #{ownerSexCode,jdbcType=VARCHAR}, #{ownerSex,jdbcType=VARCHAR}, #{ownerPostcode,jdbcType=VARCHAR}, 
+      #{ownerLocation,jdbcType=VARCHAR}, #{ownerEmali,jdbcType=VARCHAR}, #{businessInsure,jdbcType=VARCHAR}, 
+      #{businessSlip,jdbcType=VARCHAR}, #{businessTime,jdbcType=TIMESTAMP}, #{businessJieTime,jdbcType=TIMESTAMP}, 
+      #{businessMoney,jdbcType=DOUBLE}, #{strongBao,jdbcType=VARCHAR}, #{strongDan,jdbcType=VARCHAR}, 
+      #{strongTime,jdbcType=TIMESTAMP}, #{moneyJiaoqiangTime,jdbcType=TIMESTAMP}, #{moneyJiaoqiang,jdbcType=DOUBLE}, 
+      #{boatsTallage,jdbcType=DOUBLE}, #{rate,jdbcType=DOUBLE}, #{sumCoefficient,jdbcType=DOUBLE}, 
+      #{communicationTreatment,jdbcType=DOUBLE}, #{transportationCoefficient,jdbcType=DOUBLE}, 
+      #{underwritingProduct,jdbcType=DOUBLE}, #{underwritingCoefficient,jdbcType=DOUBLE}, 
+      #{ditchCoefficient,jdbcType=DOUBLE}, #{fPriceShang,jdbcType=DOUBLE}, #{fPriceJiao,jdbcType=DOUBLE}, 
+      #{moneyHe,jdbcType=DOUBLE}, #{dianSlip,jdbcType=INTEGER}, #{dianTicket,jdbcType=INTEGER}, 
+      #{dianEmali,jdbcType=VARCHAR}, #{signBao,jdbcType=INTEGER}, #{swNumber,jdbcType=VARCHAR}, 
+      #{orderStatus,jdbcType=INTEGER}, #{payment,jdbcType=INTEGER}, #{pfoNumber,jdbcType=VARCHAR}, 
+      #{paymentStatus,jdbcType=INTEGER}, #{refundableStatus,jdbcType=INTEGER}, #{paymentTime,jdbcType=TIMESTAMP}, 
+      #{refundableTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifiedUser,jdbcType=VARCHAR}, #{modifiedTime,jdbcType=TIMESTAMP}, #{carNo,jdbcType=VARCHAR}, 
+      #{vin,jdbcType=VARCHAR}, #{engineNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.songzhi.carInsure.web.po.TOrder" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="includId != null" >
+        includ_id,
+      </if>
+      <if test="issueCode != null" >
+        issue_code,
+      </if>
+      <if test="issue != null" >
+        Issue,
+      </if>
+      <if test="trenchCode != null" >
+        trench_code,
+      </if>
+      <if test="trench != null" >
+        trench,
+      </if>
+      <if test="businessCode != null" >
+        business_code,
+      </if>
+      <if test="business != null" >
+        business,
+      </if>
+      <if test="serviceCode != null" >
+        service_code,
+      </if>
+      <if test="service != null" >
+        service,
+      </if>
+      <if test="salesmanCode != null" >
+        salesman_code,
+      </if>
+      <if test="salesman != null" >
+        salesman,
+      </if>
+      <if test="catalogueCode != null" >
+        catalogue_code,
+      </if>
+      <if test="catalogue != null" >
+        catalogue,
+      </if>
+      <if test="agencyCode != null" >
+        agency_code,
+      </if>
+      <if test="agency != null" >
+        agency,
+      </if>
+      <if test="chezhuName != null" >
+        chezhu_name,
+      </if>
+      <if test="chenzhuCardCode != null" >
+        chenzhu_card_code,
+      </if>
+      <if test="credentialsType != null" >
+        credentials_Type,
+      </if>
+      <if test="credentials != null" >
+        credentials,
+      </if>
+      <if test="chezhuPhone != null" >
+        chezhu_phone,
+      </if>
+      <if test="chezhuCode != null" >
+        chezhu_code,
+      </if>
+      <if test="chezhuCar != null" >
+        chezhu_car,
+      </if>
+      <if test="customerCode != null" >
+        customer_code,
+      </if>
+      <if test="customer != null" >
+        customer,
+      </if>
+      <if test="chezhuAgeCode != null" >
+        chezhu_age_code,
+      </if>
+      <if test="chezhuAge != null" >
+        chezhu_age,
+      </if>
+      <if test="chezhuSexCode != null" >
+        chezhu_sex_code,
+      </if>
+      <if test="chezhuSex != null" >
+        chezhu_sex,
+      </if>
+      <if test="chezhuPostcode != null" >
+        chezhu_postcode,
+      </if>
+      <if test="chezhuLocation != null" >
+        chezhu_location,
+      </if>
+      <if test="chezhuEmali != null" >
+        chezhu_emali,
+      </if>
+      <if test="insureName != null" >
+        insure_name,
+      </if>
+      <if test="voucherCode != null" >
+        voucher_code,
+      </if>
+      <if test="credentialsClass != null" >
+        credentials_class,
+      </if>
+      <if test="credentialsPhone != null" >
+        credentials_phone,
+      </if>
+      <if test="relationPhone != null" >
+        relation_phone,
+      </if>
+      <if test="fillingApplicationCode != null" >
+        filling_Application_code,
+      </if>
+      <if test="insureNature != null" >
+        insure_nature,
+      </if>
+      <if test="insureAgeCode != null" >
+        insure_age_code,
+      </if>
+      <if test="insureAge != null" >
+        insure_age,
+      </if>
+      <if test="insureSexCode != null" >
+        insure_sex_code,
+      </if>
+      <if test="insureSex != null" >
+        insure_sex,
+      </if>
+      <if test="insurePostcode != null" >
+        insure_postcode,
+      </if>
+      <if test="insureLocation != null" >
+        insure_location,
+      </if>
+      <if test="insureEmali != null" >
+        insure_emali,
+      </if>
+      <if test="ownerName != null" >
+        owner_name,
+      </if>
+      <if test="credentialsCode != null" >
+        credentials_code,
+      </if>
+      <if test="cardClass != null" >
+        card_class,
+      </if>
+      <if test="cardPhone != null" >
+        card_phone,
+      </if>
+      <if test="ownerPhone != null" >
+        owner_phone,
+      </if>
+      <if test="nameNatureCode != null" >
+        name_nature_code,
+      </if>
+      <if test="personNature != null" >
+        person_nature,
+      </if>
+      <if test="ownerAgeCode != null" >
+        owner_age_code,
+      </if>
+      <if test="ownerAge != null" >
+        owner_age,
+      </if>
+      <if test="ownerSexCode != null" >
+        owner_sex_code,
+      </if>
+      <if test="ownerSex != null" >
+        owner_sex,
+      </if>
+      <if test="ownerPostcode != null" >
+        owner_postcode,
+      </if>
+      <if test="ownerLocation != null" >
+        owner_location,
+      </if>
+      <if test="ownerEmali != null" >
+        owner_emali,
+      </if>
+      <if test="businessInsure != null" >
+        business_insure,
+      </if>
+      <if test="businessSlip != null" >
+        business_slip,
+      </if>
+      <if test="businessTime != null" >
+        business_time,
+      </if>
+      <if test="businessJieTime != null" >
+        business_jie_time,
+      </if>
+      <if test="businessMoney != null" >
+        business_money,
+      </if>
+      <if test="strongBao != null" >
+        strong_bao,
+      </if>
+      <if test="strongDan != null" >
+        strong_dan,
+      </if>
+      <if test="strongTime != null" >
+        strong_time,
+      </if>
+      <if test="moneyJiaoqiangTime != null" >
+        money_jiaoqiang_time,
+      </if>
+      <if test="moneyJiaoqiang != null" >
+        money_jiaoqiang,
+      </if>
+      <if test="boatsTallage != null" >
+        boats_tallage,
+      </if>
+      <if test="rate != null" >
+        rate,
+      </if>
+      <if test="sumCoefficient != null" >
+        sum_coefficient,
+      </if>
+      <if test="communicationTreatment != null" >
+        communication_treatment,
+      </if>
+      <if test="transportationCoefficient != null" >
+        transportation_coefficient,
+      </if>
+      <if test="underwritingProduct != null" >
+        underwriting_product,
+      </if>
+      <if test="underwritingCoefficient != null" >
+        underwriting_coefficient,
+      </if>
+      <if test="ditchCoefficient != null" >
+        ditch_coefficient,
+      </if>
+      <if test="fPriceShang != null" >
+        f_price_shang,
+      </if>
+      <if test="fPriceJiao != null" >
+        f_price_jiao,
+      </if>
+      <if test="moneyHe != null" >
+        money_he,
+      </if>
+      <if test="dianSlip != null" >
+        dian_slip,
+      </if>
+      <if test="dianTicket != null" >
+        dian_ticket,
+      </if>
+      <if test="dianEmali != null" >
+        dian_emali,
+      </if>
+      <if test="signBao != null" >
+        sign_bao,
+      </if>
+      <if test="swNumber != null" >
+        sw_number,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="pfoNumber != null" >
+        pfo_number,
+      </if>
+      <if test="paymentStatus != null" >
+        payment_status,
+      </if>
+      <if test="refundableStatus != null" >
+        refundable_status,
+      </if>
+      <if test="paymentTime != null" >
+        payment_time,
+      </if>
+      <if test="refundableTime != null" >
+        refundable_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifiedUser != null" >
+        modified_user,
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time,
+      </if>
+      <if test="carNo != null" >
+        car_no,
+      </if>
+      <if test="vin != null" >
+        vin,
+      </if>
+      <if test="engineNo != null" >
+        engine_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="includId != null" >
+        #{includId,jdbcType=VARCHAR},
+      </if>
+      <if test="issueCode != null" >
+        #{issueCode,jdbcType=VARCHAR},
+      </if>
+      <if test="issue != null" >
+        #{issue,jdbcType=VARCHAR},
+      </if>
+      <if test="trenchCode != null" >
+        #{trenchCode,jdbcType=VARCHAR},
+      </if>
+      <if test="trench != null" >
+        #{trench,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCode != null" >
+        #{businessCode,jdbcType=VARCHAR},
+      </if>
+      <if test="business != null" >
+        #{business,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null" >
+        #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="service != null" >
+        #{service,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanCode != null" >
+        #{salesmanCode,jdbcType=VARCHAR},
+      </if>
+      <if test="salesman != null" >
+        #{salesman,jdbcType=VARCHAR},
+      </if>
+      <if test="catalogueCode != null" >
+        #{catalogueCode,jdbcType=VARCHAR},
+      </if>
+      <if test="catalogue != null" >
+        #{catalogue,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyCode != null" >
+        #{agencyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agency != null" >
+        #{agency,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuName != null" >
+        #{chezhuName,jdbcType=VARCHAR},
+      </if>
+      <if test="chenzhuCardCode != null" >
+        #{chenzhuCardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialsType != null" >
+        #{credentialsType,jdbcType=VARCHAR},
+      </if>
+      <if test="credentials != null" >
+        #{credentials,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuPhone != null" >
+        #{chezhuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuCode != null" >
+        #{chezhuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuCar != null" >
+        #{chezhuCar,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null" >
+        #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuAgeCode != null" >
+        #{chezhuAgeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuAge != null" >
+        #{chezhuAge,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuSexCode != null" >
+        #{chezhuSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuSex != null" >
+        #{chezhuSex,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuPostcode != null" >
+        #{chezhuPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuLocation != null" >
+        #{chezhuLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuEmali != null" >
+        #{chezhuEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="insureName != null" >
+        #{insureName,jdbcType=VARCHAR},
+      </if>
+      <if test="voucherCode != null" >
+        #{voucherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialsClass != null" >
+        #{credentialsClass,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialsPhone != null" >
+        #{credentialsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="relationPhone != null" >
+        #{relationPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="fillingApplicationCode != null" >
+        #{fillingApplicationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insureNature != null" >
+        #{insureNature,jdbcType=VARCHAR},
+      </if>
+      <if test="insureAgeCode != null" >
+        #{insureAgeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insureAge != null" >
+        #{insureAge,jdbcType=VARCHAR},
+      </if>
+      <if test="insureSexCode != null" >
+        #{insureSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insureSex != null" >
+        #{insureSex,jdbcType=VARCHAR},
+      </if>
+      <if test="insurePostcode != null" >
+        #{insurePostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="insureLocation != null" >
+        #{insureLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="insureEmali != null" >
+        #{insureEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerName != null" >
+        #{ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialsCode != null" >
+        #{credentialsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardClass != null" >
+        #{cardClass,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPhone != null" >
+        #{cardPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerPhone != null" >
+        #{ownerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="nameNatureCode != null" >
+        #{nameNatureCode,jdbcType=VARCHAR},
+      </if>
+      <if test="personNature != null" >
+        #{personNature,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerAgeCode != null" >
+        #{ownerAgeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerAge != null" >
+        #{ownerAge,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerSexCode != null" >
+        #{ownerSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerSex != null" >
+        #{ownerSex,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerPostcode != null" >
+        #{ownerPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerLocation != null" >
+        #{ownerLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerEmali != null" >
+        #{ownerEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="businessInsure != null" >
+        #{businessInsure,jdbcType=VARCHAR},
+      </if>
+      <if test="businessSlip != null" >
+        #{businessSlip,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTime != null" >
+        #{businessTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessJieTime != null" >
+        #{businessJieTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessMoney != null" >
+        #{businessMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="strongBao != null" >
+        #{strongBao,jdbcType=VARCHAR},
+      </if>
+      <if test="strongDan != null" >
+        #{strongDan,jdbcType=VARCHAR},
+      </if>
+      <if test="strongTime != null" >
+        #{strongTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moneyJiaoqiangTime != null" >
+        #{moneyJiaoqiangTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moneyJiaoqiang != null" >
+        #{moneyJiaoqiang,jdbcType=DOUBLE},
+      </if>
+      <if test="boatsTallage != null" >
+        #{boatsTallage,jdbcType=DOUBLE},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=DOUBLE},
+      </if>
+      <if test="sumCoefficient != null" >
+        #{sumCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="communicationTreatment != null" >
+        #{communicationTreatment,jdbcType=DOUBLE},
+      </if>
+      <if test="transportationCoefficient != null" >
+        #{transportationCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="underwritingProduct != null" >
+        #{underwritingProduct,jdbcType=DOUBLE},
+      </if>
+      <if test="underwritingCoefficient != null" >
+        #{underwritingCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="ditchCoefficient != null" >
+        #{ditchCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="fPriceShang != null" >
+        #{fPriceShang,jdbcType=DOUBLE},
+      </if>
+      <if test="fPriceJiao != null" >
+        #{fPriceJiao,jdbcType=DOUBLE},
+      </if>
+      <if test="moneyHe != null" >
+        #{moneyHe,jdbcType=DOUBLE},
+      </if>
+      <if test="dianSlip != null" >
+        #{dianSlip,jdbcType=INTEGER},
+      </if>
+      <if test="dianTicket != null" >
+        #{dianTicket,jdbcType=INTEGER},
+      </if>
+      <if test="dianEmali != null" >
+        #{dianEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="signBao != null" >
+        #{signBao,jdbcType=INTEGER},
+      </if>
+      <if test="swNumber != null" >
+        #{swNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=INTEGER},
+      </if>
+      <if test="pfoNumber != null" >
+        #{pfoNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentStatus != null" >
+        #{paymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="refundableStatus != null" >
+        #{refundableStatus,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTime != null" >
+        #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundableTime != null" >
+        #{refundableTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedUser != null" >
+        #{modifiedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedTime != null" >
+        #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carNo != null" >
+        #{carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="engineNo != null" >
+        #{engineNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.songzhi.carInsure.web.po.TOrderExample" resultType="java.lang.Integer" >
+    select count(*) from t_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_order
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.includId != null" >
+        includ_id = #{record.includId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.issueCode != null" >
+        issue_code = #{record.issueCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.issue != null" >
+        Issue = #{record.issue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trenchCode != null" >
+        trench_code = #{record.trenchCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trench != null" >
+        trench = #{record.trench,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessCode != null" >
+        business_code = #{record.businessCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.business != null" >
+        business = #{record.business,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serviceCode != null" >
+        service_code = #{record.serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.service != null" >
+        service = #{record.service,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesmanCode != null" >
+        salesman_code = #{record.salesmanCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salesman != null" >
+        salesman = #{record.salesman,jdbcType=VARCHAR},
+      </if>
+      <if test="record.catalogueCode != null" >
+        catalogue_code = #{record.catalogueCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.catalogue != null" >
+        catalogue = #{record.catalogue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.agencyCode != null" >
+        agency_code = #{record.agencyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.agency != null" >
+        agency = #{record.agency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuName != null" >
+        chezhu_name = #{record.chezhuName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chenzhuCardCode != null" >
+        chenzhu_card_code = #{record.chenzhuCardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.credentialsType != null" >
+        credentials_Type = #{record.credentialsType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.credentials != null" >
+        credentials = #{record.credentials,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuPhone != null" >
+        chezhu_phone = #{record.chezhuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuCode != null" >
+        chezhu_code = #{record.chezhuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuCar != null" >
+        chezhu_car = #{record.chezhuCar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerCode != null" >
+        customer_code = #{record.customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customer != null" >
+        customer = #{record.customer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuAgeCode != null" >
+        chezhu_age_code = #{record.chezhuAgeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuAge != null" >
+        chezhu_age = #{record.chezhuAge,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuSexCode != null" >
+        chezhu_sex_code = #{record.chezhuSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuSex != null" >
+        chezhu_sex = #{record.chezhuSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuPostcode != null" >
+        chezhu_postcode = #{record.chezhuPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuLocation != null" >
+        chezhu_location = #{record.chezhuLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuEmali != null" >
+        chezhu_emali = #{record.chezhuEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insureName != null" >
+        insure_name = #{record.insureName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.voucherCode != null" >
+        voucher_code = #{record.voucherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.credentialsClass != null" >
+        credentials_class = #{record.credentialsClass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.credentialsPhone != null" >
+        credentials_phone = #{record.credentialsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relationPhone != null" >
+        relation_phone = #{record.relationPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fillingApplicationCode != null" >
+        filling_Application_code = #{record.fillingApplicationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insureNature != null" >
+        insure_nature = #{record.insureNature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insureAgeCode != null" >
+        insure_age_code = #{record.insureAgeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insureAge != null" >
+        insure_age = #{record.insureAge,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insureSexCode != null" >
+        insure_sex_code = #{record.insureSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insureSex != null" >
+        insure_sex = #{record.insureSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insurePostcode != null" >
+        insure_postcode = #{record.insurePostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insureLocation != null" >
+        insure_location = #{record.insureLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insureEmali != null" >
+        insure_emali = #{record.insureEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownerName != null" >
+        owner_name = #{record.ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.credentialsCode != null" >
+        credentials_code = #{record.credentialsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardClass != null" >
+        card_class = #{record.cardClass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardPhone != null" >
+        card_phone = #{record.cardPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownerPhone != null" >
+        owner_phone = #{record.ownerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nameNatureCode != null" >
+        name_nature_code = #{record.nameNatureCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.personNature != null" >
+        person_nature = #{record.personNature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownerAgeCode != null" >
+        owner_age_code = #{record.ownerAgeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownerAge != null" >
+        owner_age = #{record.ownerAge,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownerSexCode != null" >
+        owner_sex_code = #{record.ownerSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownerSex != null" >
+        owner_sex = #{record.ownerSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownerPostcode != null" >
+        owner_postcode = #{record.ownerPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownerLocation != null" >
+        owner_location = #{record.ownerLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ownerEmali != null" >
+        owner_emali = #{record.ownerEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessInsure != null" >
+        business_insure = #{record.businessInsure,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessSlip != null" >
+        business_slip = #{record.businessSlip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessTime != null" >
+        business_time = #{record.businessTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.businessJieTime != null" >
+        business_jie_time = #{record.businessJieTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.businessMoney != null" >
+        business_money = #{record.businessMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.strongBao != null" >
+        strong_bao = #{record.strongBao,jdbcType=VARCHAR},
+      </if>
+      <if test="record.strongDan != null" >
+        strong_dan = #{record.strongDan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.strongTime != null" >
+        strong_time = #{record.strongTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.moneyJiaoqiangTime != null" >
+        money_jiaoqiang_time = #{record.moneyJiaoqiangTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.moneyJiaoqiang != null" >
+        money_jiaoqiang = #{record.moneyJiaoqiang,jdbcType=DOUBLE},
+      </if>
+      <if test="record.boatsTallage != null" >
+        boats_tallage = #{record.boatsTallage,jdbcType=DOUBLE},
+      </if>
+      <if test="record.rate != null" >
+        rate = #{record.rate,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sumCoefficient != null" >
+        sum_coefficient = #{record.sumCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="record.communicationTreatment != null" >
+        communication_treatment = #{record.communicationTreatment,jdbcType=DOUBLE},
+      </if>
+      <if test="record.transportationCoefficient != null" >
+        transportation_coefficient = #{record.transportationCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="record.underwritingProduct != null" >
+        underwriting_product = #{record.underwritingProduct,jdbcType=DOUBLE},
+      </if>
+      <if test="record.underwritingCoefficient != null" >
+        underwriting_coefficient = #{record.underwritingCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ditchCoefficient != null" >
+        ditch_coefficient = #{record.ditchCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="record.fPriceShang != null" >
+        f_price_shang = #{record.fPriceShang,jdbcType=DOUBLE},
+      </if>
+      <if test="record.fPriceJiao != null" >
+        f_price_jiao = #{record.fPriceJiao,jdbcType=DOUBLE},
+      </if>
+      <if test="record.moneyHe != null" >
+        money_he = #{record.moneyHe,jdbcType=DOUBLE},
+      </if>
+      <if test="record.dianSlip != null" >
+        dian_slip = #{record.dianSlip,jdbcType=INTEGER},
+      </if>
+      <if test="record.dianTicket != null" >
+        dian_ticket = #{record.dianTicket,jdbcType=INTEGER},
+      </if>
+      <if test="record.dianEmali != null" >
+        dian_emali = #{record.dianEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="record.signBao != null" >
+        sign_bao = #{record.signBao,jdbcType=INTEGER},
+      </if>
+      <if test="record.swNumber != null" >
+        sw_number = #{record.swNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderStatus != null" >
+        order_status = #{record.orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.payment != null" >
+        payment = #{record.payment,jdbcType=INTEGER},
+      </if>
+      <if test="record.pfoNumber != null" >
+        pfo_number = #{record.pfoNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymentStatus != null" >
+        payment_status = #{record.paymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundableStatus != null" >
+        refundable_status = #{record.refundableStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.paymentTime != null" >
+        payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.refundableTime != null" >
+        refundable_time = #{record.refundableTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createUser != null" >
+        create_user = #{record.createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifiedUser != null" >
+        modified_user = #{record.modifiedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifiedTime != null" >
+        modified_time = #{record.modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.carNo != null" >
+        car_no = #{record.carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vin != null" >
+        vin = #{record.vin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineNo != null" >
+        engine_no = #{record.engineNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_order
+    set id = #{record.id,jdbcType=INTEGER},
+      includ_id = #{record.includId,jdbcType=VARCHAR},
+      issue_code = #{record.issueCode,jdbcType=VARCHAR},
+      Issue = #{record.issue,jdbcType=VARCHAR},
+      trench_code = #{record.trenchCode,jdbcType=VARCHAR},
+      trench = #{record.trench,jdbcType=VARCHAR},
+      business_code = #{record.businessCode,jdbcType=VARCHAR},
+      business = #{record.business,jdbcType=VARCHAR},
+      service_code = #{record.serviceCode,jdbcType=VARCHAR},
+      service = #{record.service,jdbcType=VARCHAR},
+      salesman_code = #{record.salesmanCode,jdbcType=VARCHAR},
+      salesman = #{record.salesman,jdbcType=VARCHAR},
+      catalogue_code = #{record.catalogueCode,jdbcType=VARCHAR},
+      catalogue = #{record.catalogue,jdbcType=VARCHAR},
+      agency_code = #{record.agencyCode,jdbcType=VARCHAR},
+      agency = #{record.agency,jdbcType=VARCHAR},
+      chezhu_name = #{record.chezhuName,jdbcType=VARCHAR},
+      chenzhu_card_code = #{record.chenzhuCardCode,jdbcType=VARCHAR},
+      credentials_Type = #{record.credentialsType,jdbcType=VARCHAR},
+      credentials = #{record.credentials,jdbcType=VARCHAR},
+      chezhu_phone = #{record.chezhuPhone,jdbcType=VARCHAR},
+      chezhu_code = #{record.chezhuCode,jdbcType=VARCHAR},
+      chezhu_car = #{record.chezhuCar,jdbcType=VARCHAR},
+      customer_code = #{record.customerCode,jdbcType=VARCHAR},
+      customer = #{record.customer,jdbcType=VARCHAR},
+      chezhu_age_code = #{record.chezhuAgeCode,jdbcType=VARCHAR},
+      chezhu_age = #{record.chezhuAge,jdbcType=VARCHAR},
+      chezhu_sex_code = #{record.chezhuSexCode,jdbcType=VARCHAR},
+      chezhu_sex = #{record.chezhuSex,jdbcType=VARCHAR},
+      chezhu_postcode = #{record.chezhuPostcode,jdbcType=VARCHAR},
+      chezhu_location = #{record.chezhuLocation,jdbcType=VARCHAR},
+      chezhu_emali = #{record.chezhuEmali,jdbcType=VARCHAR},
+      insure_name = #{record.insureName,jdbcType=VARCHAR},
+      voucher_code = #{record.voucherCode,jdbcType=VARCHAR},
+      credentials_class = #{record.credentialsClass,jdbcType=VARCHAR},
+      credentials_phone = #{record.credentialsPhone,jdbcType=VARCHAR},
+      relation_phone = #{record.relationPhone,jdbcType=VARCHAR},
+      filling_Application_code = #{record.fillingApplicationCode,jdbcType=VARCHAR},
+      insure_nature = #{record.insureNature,jdbcType=VARCHAR},
+      insure_age_code = #{record.insureAgeCode,jdbcType=VARCHAR},
+      insure_age = #{record.insureAge,jdbcType=VARCHAR},
+      insure_sex_code = #{record.insureSexCode,jdbcType=VARCHAR},
+      insure_sex = #{record.insureSex,jdbcType=VARCHAR},
+      insure_postcode = #{record.insurePostcode,jdbcType=VARCHAR},
+      insure_location = #{record.insureLocation,jdbcType=VARCHAR},
+      insure_emali = #{record.insureEmali,jdbcType=VARCHAR},
+      owner_name = #{record.ownerName,jdbcType=VARCHAR},
+      credentials_code = #{record.credentialsCode,jdbcType=VARCHAR},
+      card_class = #{record.cardClass,jdbcType=VARCHAR},
+      card_phone = #{record.cardPhone,jdbcType=VARCHAR},
+      owner_phone = #{record.ownerPhone,jdbcType=VARCHAR},
+      name_nature_code = #{record.nameNatureCode,jdbcType=VARCHAR},
+      person_nature = #{record.personNature,jdbcType=VARCHAR},
+      owner_age_code = #{record.ownerAgeCode,jdbcType=VARCHAR},
+      owner_age = #{record.ownerAge,jdbcType=VARCHAR},
+      owner_sex_code = #{record.ownerSexCode,jdbcType=VARCHAR},
+      owner_sex = #{record.ownerSex,jdbcType=VARCHAR},
+      owner_postcode = #{record.ownerPostcode,jdbcType=VARCHAR},
+      owner_location = #{record.ownerLocation,jdbcType=VARCHAR},
+      owner_emali = #{record.ownerEmali,jdbcType=VARCHAR},
+      business_insure = #{record.businessInsure,jdbcType=VARCHAR},
+      business_slip = #{record.businessSlip,jdbcType=VARCHAR},
+      business_time = #{record.businessTime,jdbcType=TIMESTAMP},
+      business_jie_time = #{record.businessJieTime,jdbcType=TIMESTAMP},
+      business_money = #{record.businessMoney,jdbcType=DOUBLE},
+      strong_bao = #{record.strongBao,jdbcType=VARCHAR},
+      strong_dan = #{record.strongDan,jdbcType=VARCHAR},
+      strong_time = #{record.strongTime,jdbcType=TIMESTAMP},
+      money_jiaoqiang_time = #{record.moneyJiaoqiangTime,jdbcType=TIMESTAMP},
+      money_jiaoqiang = #{record.moneyJiaoqiang,jdbcType=DOUBLE},
+      boats_tallage = #{record.boatsTallage,jdbcType=DOUBLE},
+      rate = #{record.rate,jdbcType=DOUBLE},
+      sum_coefficient = #{record.sumCoefficient,jdbcType=DOUBLE},
+      communication_treatment = #{record.communicationTreatment,jdbcType=DOUBLE},
+      transportation_coefficient = #{record.transportationCoefficient,jdbcType=DOUBLE},
+      underwriting_product = #{record.underwritingProduct,jdbcType=DOUBLE},
+      underwriting_coefficient = #{record.underwritingCoefficient,jdbcType=DOUBLE},
+      ditch_coefficient = #{record.ditchCoefficient,jdbcType=DOUBLE},
+      f_price_shang = #{record.fPriceShang,jdbcType=DOUBLE},
+      f_price_jiao = #{record.fPriceJiao,jdbcType=DOUBLE},
+      money_he = #{record.moneyHe,jdbcType=DOUBLE},
+      dian_slip = #{record.dianSlip,jdbcType=INTEGER},
+      dian_ticket = #{record.dianTicket,jdbcType=INTEGER},
+      dian_emali = #{record.dianEmali,jdbcType=VARCHAR},
+      sign_bao = #{record.signBao,jdbcType=INTEGER},
+      sw_number = #{record.swNumber,jdbcType=VARCHAR},
+      order_status = #{record.orderStatus,jdbcType=INTEGER},
+      payment = #{record.payment,jdbcType=INTEGER},
+      pfo_number = #{record.pfoNumber,jdbcType=VARCHAR},
+      payment_status = #{record.paymentStatus,jdbcType=INTEGER},
+      refundable_status = #{record.refundableStatus,jdbcType=INTEGER},
+      payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
+      refundable_time = #{record.refundableTime,jdbcType=TIMESTAMP},
+      create_user = #{record.createUser,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      modified_user = #{record.modifiedUser,jdbcType=VARCHAR},
+      modified_time = #{record.modifiedTime,jdbcType=TIMESTAMP},
+      car_no = #{record.carNo,jdbcType=VARCHAR},
+      vin = #{record.vin,jdbcType=VARCHAR},
+      engine_no = #{record.engineNo,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.songzhi.carInsure.web.po.TOrder" >
+    update t_order
+    <set >
+      <if test="includId != null" >
+        includ_id = #{includId,jdbcType=VARCHAR},
+      </if>
+      <if test="issueCode != null" >
+        issue_code = #{issueCode,jdbcType=VARCHAR},
+      </if>
+      <if test="issue != null" >
+        Issue = #{issue,jdbcType=VARCHAR},
+      </if>
+      <if test="trenchCode != null" >
+        trench_code = #{trenchCode,jdbcType=VARCHAR},
+      </if>
+      <if test="trench != null" >
+        trench = #{trench,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCode != null" >
+        business_code = #{businessCode,jdbcType=VARCHAR},
+      </if>
+      <if test="business != null" >
+        business = #{business,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null" >
+        service_code = #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="service != null" >
+        service = #{service,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmanCode != null" >
+        salesman_code = #{salesmanCode,jdbcType=VARCHAR},
+      </if>
+      <if test="salesman != null" >
+        salesman = #{salesman,jdbcType=VARCHAR},
+      </if>
+      <if test="catalogueCode != null" >
+        catalogue_code = #{catalogueCode,jdbcType=VARCHAR},
+      </if>
+      <if test="catalogue != null" >
+        catalogue = #{catalogue,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyCode != null" >
+        agency_code = #{agencyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agency != null" >
+        agency = #{agency,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuName != null" >
+        chezhu_name = #{chezhuName,jdbcType=VARCHAR},
+      </if>
+      <if test="chenzhuCardCode != null" >
+        chenzhu_card_code = #{chenzhuCardCode,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialsType != null" >
+        credentials_Type = #{credentialsType,jdbcType=VARCHAR},
+      </if>
+      <if test="credentials != null" >
+        credentials = #{credentials,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuPhone != null" >
+        chezhu_phone = #{chezhuPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuCode != null" >
+        chezhu_code = #{chezhuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuCar != null" >
+        chezhu_car = #{chezhuCar,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null" >
+        customer_code = #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuAgeCode != null" >
+        chezhu_age_code = #{chezhuAgeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuAge != null" >
+        chezhu_age = #{chezhuAge,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuSexCode != null" >
+        chezhu_sex_code = #{chezhuSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuSex != null" >
+        chezhu_sex = #{chezhuSex,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuPostcode != null" >
+        chezhu_postcode = #{chezhuPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuLocation != null" >
+        chezhu_location = #{chezhuLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuEmali != null" >
+        chezhu_emali = #{chezhuEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="insureName != null" >
+        insure_name = #{insureName,jdbcType=VARCHAR},
+      </if>
+      <if test="voucherCode != null" >
+        voucher_code = #{voucherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialsClass != null" >
+        credentials_class = #{credentialsClass,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialsPhone != null" >
+        credentials_phone = #{credentialsPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="relationPhone != null" >
+        relation_phone = #{relationPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="fillingApplicationCode != null" >
+        filling_Application_code = #{fillingApplicationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insureNature != null" >
+        insure_nature = #{insureNature,jdbcType=VARCHAR},
+      </if>
+      <if test="insureAgeCode != null" >
+        insure_age_code = #{insureAgeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insureAge != null" >
+        insure_age = #{insureAge,jdbcType=VARCHAR},
+      </if>
+      <if test="insureSexCode != null" >
+        insure_sex_code = #{insureSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insureSex != null" >
+        insure_sex = #{insureSex,jdbcType=VARCHAR},
+      </if>
+      <if test="insurePostcode != null" >
+        insure_postcode = #{insurePostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="insureLocation != null" >
+        insure_location = #{insureLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="insureEmali != null" >
+        insure_emali = #{insureEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerName != null" >
+        owner_name = #{ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="credentialsCode != null" >
+        credentials_code = #{credentialsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardClass != null" >
+        card_class = #{cardClass,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPhone != null" >
+        card_phone = #{cardPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerPhone != null" >
+        owner_phone = #{ownerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="nameNatureCode != null" >
+        name_nature_code = #{nameNatureCode,jdbcType=VARCHAR},
+      </if>
+      <if test="personNature != null" >
+        person_nature = #{personNature,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerAgeCode != null" >
+        owner_age_code = #{ownerAgeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerAge != null" >
+        owner_age = #{ownerAge,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerSexCode != null" >
+        owner_sex_code = #{ownerSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerSex != null" >
+        owner_sex = #{ownerSex,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerPostcode != null" >
+        owner_postcode = #{ownerPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerLocation != null" >
+        owner_location = #{ownerLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerEmali != null" >
+        owner_emali = #{ownerEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="businessInsure != null" >
+        business_insure = #{businessInsure,jdbcType=VARCHAR},
+      </if>
+      <if test="businessSlip != null" >
+        business_slip = #{businessSlip,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTime != null" >
+        business_time = #{businessTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessJieTime != null" >
+        business_jie_time = #{businessJieTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessMoney != null" >
+        business_money = #{businessMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="strongBao != null" >
+        strong_bao = #{strongBao,jdbcType=VARCHAR},
+      </if>
+      <if test="strongDan != null" >
+        strong_dan = #{strongDan,jdbcType=VARCHAR},
+      </if>
+      <if test="strongTime != null" >
+        strong_time = #{strongTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moneyJiaoqiangTime != null" >
+        money_jiaoqiang_time = #{moneyJiaoqiangTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="moneyJiaoqiang != null" >
+        money_jiaoqiang = #{moneyJiaoqiang,jdbcType=DOUBLE},
+      </if>
+      <if test="boatsTallage != null" >
+        boats_tallage = #{boatsTallage,jdbcType=DOUBLE},
+      </if>
+      <if test="rate != null" >
+        rate = #{rate,jdbcType=DOUBLE},
+      </if>
+      <if test="sumCoefficient != null" >
+        sum_coefficient = #{sumCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="communicationTreatment != null" >
+        communication_treatment = #{communicationTreatment,jdbcType=DOUBLE},
+      </if>
+      <if test="transportationCoefficient != null" >
+        transportation_coefficient = #{transportationCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="underwritingProduct != null" >
+        underwriting_product = #{underwritingProduct,jdbcType=DOUBLE},
+      </if>
+      <if test="underwritingCoefficient != null" >
+        underwriting_coefficient = #{underwritingCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="ditchCoefficient != null" >
+        ditch_coefficient = #{ditchCoefficient,jdbcType=DOUBLE},
+      </if>
+      <if test="fPriceShang != null" >
+        f_price_shang = #{fPriceShang,jdbcType=DOUBLE},
+      </if>
+      <if test="fPriceJiao != null" >
+        f_price_jiao = #{fPriceJiao,jdbcType=DOUBLE},
+      </if>
+      <if test="moneyHe != null" >
+        money_he = #{moneyHe,jdbcType=DOUBLE},
+      </if>
+      <if test="dianSlip != null" >
+        dian_slip = #{dianSlip,jdbcType=INTEGER},
+      </if>
+      <if test="dianTicket != null" >
+        dian_ticket = #{dianTicket,jdbcType=INTEGER},
+      </if>
+      <if test="dianEmali != null" >
+        dian_emali = #{dianEmali,jdbcType=VARCHAR},
+      </if>
+      <if test="signBao != null" >
+        sign_bao = #{signBao,jdbcType=INTEGER},
+      </if>
+      <if test="swNumber != null" >
+        sw_number = #{swNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payment != null" >
+        payment = #{payment,jdbcType=INTEGER},
+      </if>
+      <if test="pfoNumber != null" >
+        pfo_number = #{pfoNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentStatus != null" >
+        payment_status = #{paymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="refundableStatus != null" >
+        refundable_status = #{refundableStatus,jdbcType=INTEGER},
+      </if>
+      <if test="paymentTime != null" >
+        payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundableTime != null" >
+        refundable_time = #{refundableTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedUser != null" >
+        modified_user = #{modifiedUser,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedTime != null" >
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carNo != null" >
+        car_no = #{carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="engineNo != null" >
+        engine_no = #{engineNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.songzhi.carInsure.web.po.TOrder" >
+    update t_order
+    set includ_id = #{includId,jdbcType=VARCHAR},
+      issue_code = #{issueCode,jdbcType=VARCHAR},
+      Issue = #{issue,jdbcType=VARCHAR},
+      trench_code = #{trenchCode,jdbcType=VARCHAR},
+      trench = #{trench,jdbcType=VARCHAR},
+      business_code = #{businessCode,jdbcType=VARCHAR},
+      business = #{business,jdbcType=VARCHAR},
+      service_code = #{serviceCode,jdbcType=VARCHAR},
+      service = #{service,jdbcType=VARCHAR},
+      salesman_code = #{salesmanCode,jdbcType=VARCHAR},
+      salesman = #{salesman,jdbcType=VARCHAR},
+      catalogue_code = #{catalogueCode,jdbcType=VARCHAR},
+      catalogue = #{catalogue,jdbcType=VARCHAR},
+      agency_code = #{agencyCode,jdbcType=VARCHAR},
+      agency = #{agency,jdbcType=VARCHAR},
+      chezhu_name = #{chezhuName,jdbcType=VARCHAR},
+      chenzhu_card_code = #{chenzhuCardCode,jdbcType=VARCHAR},
+      credentials_Type = #{credentialsType,jdbcType=VARCHAR},
+      credentials = #{credentials,jdbcType=VARCHAR},
+      chezhu_phone = #{chezhuPhone,jdbcType=VARCHAR},
+      chezhu_code = #{chezhuCode,jdbcType=VARCHAR},
+      chezhu_car = #{chezhuCar,jdbcType=VARCHAR},
+      customer_code = #{customerCode,jdbcType=VARCHAR},
+      customer = #{customer,jdbcType=VARCHAR},
+      chezhu_age_code = #{chezhuAgeCode,jdbcType=VARCHAR},
+      chezhu_age = #{chezhuAge,jdbcType=VARCHAR},
+      chezhu_sex_code = #{chezhuSexCode,jdbcType=VARCHAR},
+      chezhu_sex = #{chezhuSex,jdbcType=VARCHAR},
+      chezhu_postcode = #{chezhuPostcode,jdbcType=VARCHAR},
+      chezhu_location = #{chezhuLocation,jdbcType=VARCHAR},
+      chezhu_emali = #{chezhuEmali,jdbcType=VARCHAR},
+      insure_name = #{insureName,jdbcType=VARCHAR},
+      voucher_code = #{voucherCode,jdbcType=VARCHAR},
+      credentials_class = #{credentialsClass,jdbcType=VARCHAR},
+      credentials_phone = #{credentialsPhone,jdbcType=VARCHAR},
+      relation_phone = #{relationPhone,jdbcType=VARCHAR},
+      filling_Application_code = #{fillingApplicationCode,jdbcType=VARCHAR},
+      insure_nature = #{insureNature,jdbcType=VARCHAR},
+      insure_age_code = #{insureAgeCode,jdbcType=VARCHAR},
+      insure_age = #{insureAge,jdbcType=VARCHAR},
+      insure_sex_code = #{insureSexCode,jdbcType=VARCHAR},
+      insure_sex = #{insureSex,jdbcType=VARCHAR},
+      insure_postcode = #{insurePostcode,jdbcType=VARCHAR},
+      insure_location = #{insureLocation,jdbcType=VARCHAR},
+      insure_emali = #{insureEmali,jdbcType=VARCHAR},
+      owner_name = #{ownerName,jdbcType=VARCHAR},
+      credentials_code = #{credentialsCode,jdbcType=VARCHAR},
+      card_class = #{cardClass,jdbcType=VARCHAR},
+      card_phone = #{cardPhone,jdbcType=VARCHAR},
+      owner_phone = #{ownerPhone,jdbcType=VARCHAR},
+      name_nature_code = #{nameNatureCode,jdbcType=VARCHAR},
+      person_nature = #{personNature,jdbcType=VARCHAR},
+      owner_age_code = #{ownerAgeCode,jdbcType=VARCHAR},
+      owner_age = #{ownerAge,jdbcType=VARCHAR},
+      owner_sex_code = #{ownerSexCode,jdbcType=VARCHAR},
+      owner_sex = #{ownerSex,jdbcType=VARCHAR},
+      owner_postcode = #{ownerPostcode,jdbcType=VARCHAR},
+      owner_location = #{ownerLocation,jdbcType=VARCHAR},
+      owner_emali = #{ownerEmali,jdbcType=VARCHAR},
+      business_insure = #{businessInsure,jdbcType=VARCHAR},
+      business_slip = #{businessSlip,jdbcType=VARCHAR},
+      business_time = #{businessTime,jdbcType=TIMESTAMP},
+      business_jie_time = #{businessJieTime,jdbcType=TIMESTAMP},
+      business_money = #{businessMoney,jdbcType=DOUBLE},
+      strong_bao = #{strongBao,jdbcType=VARCHAR},
+      strong_dan = #{strongDan,jdbcType=VARCHAR},
+      strong_time = #{strongTime,jdbcType=TIMESTAMP},
+      money_jiaoqiang_time = #{moneyJiaoqiangTime,jdbcType=TIMESTAMP},
+      money_jiaoqiang = #{moneyJiaoqiang,jdbcType=DOUBLE},
+      boats_tallage = #{boatsTallage,jdbcType=DOUBLE},
+      rate = #{rate,jdbcType=DOUBLE},
+      sum_coefficient = #{sumCoefficient,jdbcType=DOUBLE},
+      communication_treatment = #{communicationTreatment,jdbcType=DOUBLE},
+      transportation_coefficient = #{transportationCoefficient,jdbcType=DOUBLE},
+      underwriting_product = #{underwritingProduct,jdbcType=DOUBLE},
+      underwriting_coefficient = #{underwritingCoefficient,jdbcType=DOUBLE},
+      ditch_coefficient = #{ditchCoefficient,jdbcType=DOUBLE},
+      f_price_shang = #{fPriceShang,jdbcType=DOUBLE},
+      f_price_jiao = #{fPriceJiao,jdbcType=DOUBLE},
+      money_he = #{moneyHe,jdbcType=DOUBLE},
+      dian_slip = #{dianSlip,jdbcType=INTEGER},
+      dian_ticket = #{dianTicket,jdbcType=INTEGER},
+      dian_emali = #{dianEmali,jdbcType=VARCHAR},
+      sign_bao = #{signBao,jdbcType=INTEGER},
+      sw_number = #{swNumber,jdbcType=VARCHAR},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      payment = #{payment,jdbcType=INTEGER},
+      pfo_number = #{pfoNumber,jdbcType=VARCHAR},
+      payment_status = #{paymentStatus,jdbcType=INTEGER},
+      refundable_status = #{refundableStatus,jdbcType=INTEGER},
+      payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      refundable_time = #{refundableTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modified_user = #{modifiedUser,jdbcType=VARCHAR},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      car_no = #{carNo,jdbcType=VARCHAR},
+      vin = #{vin,jdbcType=VARCHAR},
+      engine_no = #{engineNo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

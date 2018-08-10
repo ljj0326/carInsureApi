@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.songzhi.carInsure.web.dao.TTaxMapper" >
+  <resultMap id="BaseResultMap" type="com.songzhi.carInsure.web.po.TTax" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="tax_vs_tax_mrk_code" property="taxVsTaxMrkCode" jdbcType="VARCHAR" />
+    <result column="tax_vs_tax_mrk" property="taxVsTaxMrk" jdbcType="VARCHAR" />
+    <result column="tax_paytax_typ_code" property="taxPaytaxTypCode" jdbcType="VARCHAR" />
+    <result column="tax_paytax_typ" property="taxPaytaxTyp" jdbcType="VARCHAR" />
+    <result column="is_cut_tax" property="isCutTax" jdbcType="INTEGER" />
+    <result column="tax_n_taxable_months" property="taxNTaxableMonths" jdbcType="VARCHAR" />
+    <result column="tax_c_taxable1_amt" property="taxCTaxable1Amt" jdbcType="VARCHAR" />
+    <result column="tax_previous_tax_year" property="taxPreviousTaxYear" jdbcType="VARCHAR" />
+    <result column="tax_n_exhaust_capacity" property="taxNExhaustCapacity" jdbcType="VARCHAR" />
+    <result column="tax_c_curb_wt" property="taxCCurbWt" jdbcType="VARCHAR" />
+    <result column="tax_cut_reason_code" property="taxCutReasonCode" jdbcType="VARCHAR" />
+    <result column="tax_cut_reason" property="taxCutReason" jdbcType="VARCHAR" />
+    <result column="tax_vs_tax_tool_code" property="taxVsTaxToolCode" jdbcType="VARCHAR" />
+    <result column="tax_vs_tax_tool" property="taxVsTaxTool" jdbcType="VARCHAR" />
+    <result column="abate_prop" property="abateProp" jdbcType="VARCHAR" />
+    <result column="tax_taxFree" property="taxTaxfree" jdbcType="VARCHAR" />
+    <result column="tax_taxCertNo2" property="taxTaxcertno2" jdbcType="VARCHAR" />
+    <result column="tax_item_code" property="taxItemCode" jdbcType="VARCHAR" />
+    <result column="tax_item" property="taxItem" jdbcType="VARCHAR" />
+    <result column="tax_t_bill_date" property="taxTBillDate" jdbcType="TIMESTAMP" />
+    <result column="tax_taxpayer_id" property="taxTaxpayerId" jdbcType="INTEGER" />
+    <result column="tax_taxpayer_cert_typ_code" property="taxTaxpayerCertTypCode" jdbcType="VARCHAR" />
+    <result column="tax_taxpayer_cert_typ" property="taxTaxpayerCertTyp" jdbcType="VARCHAR" />
+    <result column="tax_taxpayer_cert_num" property="taxTaxpayerCertNum" jdbcType="INTEGER" />
+    <result column="tax_taxpayer_name" property="taxTaxpayerName" jdbcType="VARCHAR" />
+    <result column="tax_taxpayer_addr" property="taxTaxpayerAddr" jdbcType="VARCHAR" />
+    <result column="tax_tax_payment_recpt_num" property="taxTaxPaymentRecptNum" jdbcType="INTEGER" />
+    <result column="tax_n_overdue_amt" property="taxNOverdueAmt" jdbcType="VARCHAR" />
+    <result column="tax_n_lastyeart" property="taxNLastyeart" jdbcType="VARCHAR" />
+    <result column="tax_ntaxable_ant" property="taxNtaxableAnt" jdbcType="VARCHAR" />
+    <result column="c_tax_org_nolocal_code" property="cTaxOrgNolocalCode" jdbcType="VARCHAR" />
+    <result column="c_tax_org_nolocal" property="cTaxOrgNolocal" jdbcType="VARCHAR" />
+    <result column="tax_tax_authorities" property="taxTaxAuthorities" jdbcType="VARCHAR" />
+    <result column="tax_total_taxes" property="taxTotalTaxes" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, order_id, tax_vs_tax_mrk_code, tax_vs_tax_mrk, tax_paytax_typ_code, tax_paytax_typ, 
+    is_cut_tax, tax_n_taxable_months, tax_c_taxable1_amt, tax_previous_tax_year, tax_n_exhaust_capacity, 
+    tax_c_curb_wt, tax_cut_reason_code, tax_cut_reason, tax_vs_tax_tool_code, tax_vs_tax_tool, 
+    abate_prop, tax_taxFree, tax_taxCertNo2, tax_item_code, tax_item, tax_t_bill_date, 
+    tax_taxpayer_id, tax_taxpayer_cert_typ_code, tax_taxpayer_cert_typ, tax_taxpayer_cert_num, 
+    tax_taxpayer_name, tax_taxpayer_addr, tax_tax_payment_recpt_num, tax_n_overdue_amt, 
+    tax_n_lastyeart, tax_ntaxable_ant, c_tax_org_nolocal_code, c_tax_org_nolocal, tax_tax_authorities, 
+    tax_total_taxes
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.songzhi.carInsure.web.po.TTaxExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_tax
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_tax
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_tax
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.songzhi.carInsure.web.po.TTaxExample" >
+    delete from t_tax
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.songzhi.carInsure.web.po.TTax" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_tax (order_id, tax_vs_tax_mrk_code, tax_vs_tax_mrk, 
+      tax_paytax_typ_code, tax_paytax_typ, is_cut_tax, 
+      tax_n_taxable_months, tax_c_taxable1_amt, tax_previous_tax_year, 
+      tax_n_exhaust_capacity, tax_c_curb_wt, tax_cut_reason_code, 
+      tax_cut_reason, tax_vs_tax_tool_code, tax_vs_tax_tool, 
+      abate_prop, tax_taxFree, tax_taxCertNo2, 
+      tax_item_code, tax_item, tax_t_bill_date, 
+      tax_taxpayer_id, tax_taxpayer_cert_typ_code, 
+      tax_taxpayer_cert_typ, tax_taxpayer_cert_num, 
+      tax_taxpayer_name, tax_taxpayer_addr, tax_tax_payment_recpt_num, 
+      tax_n_overdue_amt, tax_n_lastyeart, tax_ntaxable_ant, 
+      c_tax_org_nolocal_code, c_tax_org_nolocal, tax_tax_authorities, 
+      tax_total_taxes)
+    values (#{orderId,jdbcType=INTEGER}, #{taxVsTaxMrkCode,jdbcType=VARCHAR}, #{taxVsTaxMrk,jdbcType=VARCHAR}, 
+      #{taxPaytaxTypCode,jdbcType=VARCHAR}, #{taxPaytaxTyp,jdbcType=VARCHAR}, #{isCutTax,jdbcType=INTEGER}, 
+      #{taxNTaxableMonths,jdbcType=VARCHAR}, #{taxCTaxable1Amt,jdbcType=VARCHAR}, #{taxPreviousTaxYear,jdbcType=VARCHAR}, 
+      #{taxNExhaustCapacity,jdbcType=VARCHAR}, #{taxCCurbWt,jdbcType=VARCHAR}, #{taxCutReasonCode,jdbcType=VARCHAR}, 
+      #{taxCutReason,jdbcType=VARCHAR}, #{taxVsTaxToolCode,jdbcType=VARCHAR}, #{taxVsTaxTool,jdbcType=VARCHAR}, 
+      #{abateProp,jdbcType=VARCHAR}, #{taxTaxfree,jdbcType=VARCHAR}, #{taxTaxcertno2,jdbcType=VARCHAR}, 
+      #{taxItemCode,jdbcType=VARCHAR}, #{taxItem,jdbcType=VARCHAR}, #{taxTBillDate,jdbcType=TIMESTAMP}, 
+      #{taxTaxpayerId,jdbcType=INTEGER}, #{taxTaxpayerCertTypCode,jdbcType=VARCHAR}, 
+      #{taxTaxpayerCertTyp,jdbcType=VARCHAR}, #{taxTaxpayerCertNum,jdbcType=INTEGER}, 
+      #{taxTaxpayerName,jdbcType=VARCHAR}, #{taxTaxpayerAddr,jdbcType=VARCHAR}, #{taxTaxPaymentRecptNum,jdbcType=INTEGER}, 
+      #{taxNOverdueAmt,jdbcType=VARCHAR}, #{taxNLastyeart,jdbcType=VARCHAR}, #{taxNtaxableAnt,jdbcType=VARCHAR}, 
+      #{cTaxOrgNolocalCode,jdbcType=VARCHAR}, #{cTaxOrgNolocal,jdbcType=VARCHAR}, #{taxTaxAuthorities,jdbcType=VARCHAR}, 
+      #{taxTotalTaxes,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.songzhi.carInsure.web.po.TTax" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_tax
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="taxVsTaxMrkCode != null" >
+        tax_vs_tax_mrk_code,
+      </if>
+      <if test="taxVsTaxMrk != null" >
+        tax_vs_tax_mrk,
+      </if>
+      <if test="taxPaytaxTypCode != null" >
+        tax_paytax_typ_code,
+      </if>
+      <if test="taxPaytaxTyp != null" >
+        tax_paytax_typ,
+      </if>
+      <if test="isCutTax != null" >
+        is_cut_tax,
+      </if>
+      <if test="taxNTaxableMonths != null" >
+        tax_n_taxable_months,
+      </if>
+      <if test="taxCTaxable1Amt != null" >
+        tax_c_taxable1_amt,
+      </if>
+      <if test="taxPreviousTaxYear != null" >
+        tax_previous_tax_year,
+      </if>
+      <if test="taxNExhaustCapacity != null" >
+        tax_n_exhaust_capacity,
+      </if>
+      <if test="taxCCurbWt != null" >
+        tax_c_curb_wt,
+      </if>
+      <if test="taxCutReasonCode != null" >
+        tax_cut_reason_code,
+      </if>
+      <if test="taxCutReason != null" >
+        tax_cut_reason,
+      </if>
+      <if test="taxVsTaxToolCode != null" >
+        tax_vs_tax_tool_code,
+      </if>
+      <if test="taxVsTaxTool != null" >
+        tax_vs_tax_tool,
+      </if>
+      <if test="abateProp != null" >
+        abate_prop,
+      </if>
+      <if test="taxTaxfree != null" >
+        tax_taxFree,
+      </if>
+      <if test="taxTaxcertno2 != null" >
+        tax_taxCertNo2,
+      </if>
+      <if test="taxItemCode != null" >
+        tax_item_code,
+      </if>
+      <if test="taxItem != null" >
+        tax_item,
+      </if>
+      <if test="taxTBillDate != null" >
+        tax_t_bill_date,
+      </if>
+      <if test="taxTaxpayerId != null" >
+        tax_taxpayer_id,
+      </if>
+      <if test="taxTaxpayerCertTypCode != null" >
+        tax_taxpayer_cert_typ_code,
+      </if>
+      <if test="taxTaxpayerCertTyp != null" >
+        tax_taxpayer_cert_typ,
+      </if>
+      <if test="taxTaxpayerCertNum != null" >
+        tax_taxpayer_cert_num,
+      </if>
+      <if test="taxTaxpayerName != null" >
+        tax_taxpayer_name,
+      </if>
+      <if test="taxTaxpayerAddr != null" >
+        tax_taxpayer_addr,
+      </if>
+      <if test="taxTaxPaymentRecptNum != null" >
+        tax_tax_payment_recpt_num,
+      </if>
+      <if test="taxNOverdueAmt != null" >
+        tax_n_overdue_amt,
+      </if>
+      <if test="taxNLastyeart != null" >
+        tax_n_lastyeart,
+      </if>
+      <if test="taxNtaxableAnt != null" >
+        tax_ntaxable_ant,
+      </if>
+      <if test="cTaxOrgNolocalCode != null" >
+        c_tax_org_nolocal_code,
+      </if>
+      <if test="cTaxOrgNolocal != null" >
+        c_tax_org_nolocal,
+      </if>
+      <if test="taxTaxAuthorities != null" >
+        tax_tax_authorities,
+      </if>
+      <if test="taxTotalTaxes != null" >
+        tax_total_taxes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="taxVsTaxMrkCode != null" >
+        #{taxVsTaxMrkCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxVsTaxMrk != null" >
+        #{taxVsTaxMrk,jdbcType=VARCHAR},
+      </if>
+      <if test="taxPaytaxTypCode != null" >
+        #{taxPaytaxTypCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxPaytaxTyp != null" >
+        #{taxPaytaxTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="isCutTax != null" >
+        #{isCutTax,jdbcType=INTEGER},
+      </if>
+      <if test="taxNTaxableMonths != null" >
+        #{taxNTaxableMonths,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCTaxable1Amt != null" >
+        #{taxCTaxable1Amt,jdbcType=VARCHAR},
+      </if>
+      <if test="taxPreviousTaxYear != null" >
+        #{taxPreviousTaxYear,jdbcType=VARCHAR},
+      </if>
+      <if test="taxNExhaustCapacity != null" >
+        #{taxNExhaustCapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCCurbWt != null" >
+        #{taxCCurbWt,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCutReasonCode != null" >
+        #{taxCutReasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCutReason != null" >
+        #{taxCutReason,jdbcType=VARCHAR},
+      </if>
+      <if test="taxVsTaxToolCode != null" >
+        #{taxVsTaxToolCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxVsTaxTool != null" >
+        #{taxVsTaxTool,jdbcType=VARCHAR},
+      </if>
+      <if test="abateProp != null" >
+        #{abateProp,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxfree != null" >
+        #{taxTaxfree,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxcertno2 != null" >
+        #{taxTaxcertno2,jdbcType=VARCHAR},
+      </if>
+      <if test="taxItemCode != null" >
+        #{taxItemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxItem != null" >
+        #{taxItem,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTBillDate != null" >
+        #{taxTBillDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taxTaxpayerId != null" >
+        #{taxTaxpayerId,jdbcType=INTEGER},
+      </if>
+      <if test="taxTaxpayerCertTypCode != null" >
+        #{taxTaxpayerCertTypCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxpayerCertTyp != null" >
+        #{taxTaxpayerCertTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxpayerCertNum != null" >
+        #{taxTaxpayerCertNum,jdbcType=INTEGER},
+      </if>
+      <if test="taxTaxpayerName != null" >
+        #{taxTaxpayerName,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxpayerAddr != null" >
+        #{taxTaxpayerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxPaymentRecptNum != null" >
+        #{taxTaxPaymentRecptNum,jdbcType=INTEGER},
+      </if>
+      <if test="taxNOverdueAmt != null" >
+        #{taxNOverdueAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="taxNLastyeart != null" >
+        #{taxNLastyeart,jdbcType=VARCHAR},
+      </if>
+      <if test="taxNtaxableAnt != null" >
+        #{taxNtaxableAnt,jdbcType=VARCHAR},
+      </if>
+      <if test="cTaxOrgNolocalCode != null" >
+        #{cTaxOrgNolocalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cTaxOrgNolocal != null" >
+        #{cTaxOrgNolocal,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxAuthorities != null" >
+        #{taxTaxAuthorities,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTotalTaxes != null" >
+        #{taxTotalTaxes,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.songzhi.carInsure.web.po.TTaxExample" resultType="java.lang.Integer" >
+    select count(*) from t_tax
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_tax
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taxVsTaxMrkCode != null" >
+        tax_vs_tax_mrk_code = #{record.taxVsTaxMrkCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxVsTaxMrk != null" >
+        tax_vs_tax_mrk = #{record.taxVsTaxMrk,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxPaytaxTypCode != null" >
+        tax_paytax_typ_code = #{record.taxPaytaxTypCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxPaytaxTyp != null" >
+        tax_paytax_typ = #{record.taxPaytaxTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isCutTax != null" >
+        is_cut_tax = #{record.isCutTax,jdbcType=INTEGER},
+      </if>
+      <if test="record.taxNTaxableMonths != null" >
+        tax_n_taxable_months = #{record.taxNTaxableMonths,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxCTaxable1Amt != null" >
+        tax_c_taxable1_amt = #{record.taxCTaxable1Amt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxPreviousTaxYear != null" >
+        tax_previous_tax_year = #{record.taxPreviousTaxYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxNExhaustCapacity != null" >
+        tax_n_exhaust_capacity = #{record.taxNExhaustCapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxCCurbWt != null" >
+        tax_c_curb_wt = #{record.taxCCurbWt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxCutReasonCode != null" >
+        tax_cut_reason_code = #{record.taxCutReasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxCutReason != null" >
+        tax_cut_reason = #{record.taxCutReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxVsTaxToolCode != null" >
+        tax_vs_tax_tool_code = #{record.taxVsTaxToolCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxVsTaxTool != null" >
+        tax_vs_tax_tool = #{record.taxVsTaxTool,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abateProp != null" >
+        abate_prop = #{record.abateProp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxTaxfree != null" >
+        tax_taxFree = #{record.taxTaxfree,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxTaxcertno2 != null" >
+        tax_taxCertNo2 = #{record.taxTaxcertno2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxItemCode != null" >
+        tax_item_code = #{record.taxItemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxItem != null" >
+        tax_item = #{record.taxItem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxTBillDate != null" >
+        tax_t_bill_date = #{record.taxTBillDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.taxTaxpayerId != null" >
+        tax_taxpayer_id = #{record.taxTaxpayerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taxTaxpayerCertTypCode != null" >
+        tax_taxpayer_cert_typ_code = #{record.taxTaxpayerCertTypCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxTaxpayerCertTyp != null" >
+        tax_taxpayer_cert_typ = #{record.taxTaxpayerCertTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxTaxpayerCertNum != null" >
+        tax_taxpayer_cert_num = #{record.taxTaxpayerCertNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.taxTaxpayerName != null" >
+        tax_taxpayer_name = #{record.taxTaxpayerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxTaxpayerAddr != null" >
+        tax_taxpayer_addr = #{record.taxTaxpayerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxTaxPaymentRecptNum != null" >
+        tax_tax_payment_recpt_num = #{record.taxTaxPaymentRecptNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.taxNOverdueAmt != null" >
+        tax_n_overdue_amt = #{record.taxNOverdueAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxNLastyeart != null" >
+        tax_n_lastyeart = #{record.taxNLastyeart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxNtaxableAnt != null" >
+        tax_ntaxable_ant = #{record.taxNtaxableAnt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cTaxOrgNolocalCode != null" >
+        c_tax_org_nolocal_code = #{record.cTaxOrgNolocalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cTaxOrgNolocal != null" >
+        c_tax_org_nolocal = #{record.cTaxOrgNolocal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxTaxAuthorities != null" >
+        tax_tax_authorities = #{record.taxTaxAuthorities,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxTotalTaxes != null" >
+        tax_total_taxes = #{record.taxTotalTaxes,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_tax
+    set id = #{record.id,jdbcType=INTEGER},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      tax_vs_tax_mrk_code = #{record.taxVsTaxMrkCode,jdbcType=VARCHAR},
+      tax_vs_tax_mrk = #{record.taxVsTaxMrk,jdbcType=VARCHAR},
+      tax_paytax_typ_code = #{record.taxPaytaxTypCode,jdbcType=VARCHAR},
+      tax_paytax_typ = #{record.taxPaytaxTyp,jdbcType=VARCHAR},
+      is_cut_tax = #{record.isCutTax,jdbcType=INTEGER},
+      tax_n_taxable_months = #{record.taxNTaxableMonths,jdbcType=VARCHAR},
+      tax_c_taxable1_amt = #{record.taxCTaxable1Amt,jdbcType=VARCHAR},
+      tax_previous_tax_year = #{record.taxPreviousTaxYear,jdbcType=VARCHAR},
+      tax_n_exhaust_capacity = #{record.taxNExhaustCapacity,jdbcType=VARCHAR},
+      tax_c_curb_wt = #{record.taxCCurbWt,jdbcType=VARCHAR},
+      tax_cut_reason_code = #{record.taxCutReasonCode,jdbcType=VARCHAR},
+      tax_cut_reason = #{record.taxCutReason,jdbcType=VARCHAR},
+      tax_vs_tax_tool_code = #{record.taxVsTaxToolCode,jdbcType=VARCHAR},
+      tax_vs_tax_tool = #{record.taxVsTaxTool,jdbcType=VARCHAR},
+      abate_prop = #{record.abateProp,jdbcType=VARCHAR},
+      tax_taxFree = #{record.taxTaxfree,jdbcType=VARCHAR},
+      tax_taxCertNo2 = #{record.taxTaxcertno2,jdbcType=VARCHAR},
+      tax_item_code = #{record.taxItemCode,jdbcType=VARCHAR},
+      tax_item = #{record.taxItem,jdbcType=VARCHAR},
+      tax_t_bill_date = #{record.taxTBillDate,jdbcType=TIMESTAMP},
+      tax_taxpayer_id = #{record.taxTaxpayerId,jdbcType=INTEGER},
+      tax_taxpayer_cert_typ_code = #{record.taxTaxpayerCertTypCode,jdbcType=VARCHAR},
+      tax_taxpayer_cert_typ = #{record.taxTaxpayerCertTyp,jdbcType=VARCHAR},
+      tax_taxpayer_cert_num = #{record.taxTaxpayerCertNum,jdbcType=INTEGER},
+      tax_taxpayer_name = #{record.taxTaxpayerName,jdbcType=VARCHAR},
+      tax_taxpayer_addr = #{record.taxTaxpayerAddr,jdbcType=VARCHAR},
+      tax_tax_payment_recpt_num = #{record.taxTaxPaymentRecptNum,jdbcType=INTEGER},
+      tax_n_overdue_amt = #{record.taxNOverdueAmt,jdbcType=VARCHAR},
+      tax_n_lastyeart = #{record.taxNLastyeart,jdbcType=VARCHAR},
+      tax_ntaxable_ant = #{record.taxNtaxableAnt,jdbcType=VARCHAR},
+      c_tax_org_nolocal_code = #{record.cTaxOrgNolocalCode,jdbcType=VARCHAR},
+      c_tax_org_nolocal = #{record.cTaxOrgNolocal,jdbcType=VARCHAR},
+      tax_tax_authorities = #{record.taxTaxAuthorities,jdbcType=VARCHAR},
+      tax_total_taxes = #{record.taxTotalTaxes,jdbcType=DOUBLE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.songzhi.carInsure.web.po.TTax" >
+    update t_tax
+    <set >
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="taxVsTaxMrkCode != null" >
+        tax_vs_tax_mrk_code = #{taxVsTaxMrkCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxVsTaxMrk != null" >
+        tax_vs_tax_mrk = #{taxVsTaxMrk,jdbcType=VARCHAR},
+      </if>
+      <if test="taxPaytaxTypCode != null" >
+        tax_paytax_typ_code = #{taxPaytaxTypCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxPaytaxTyp != null" >
+        tax_paytax_typ = #{taxPaytaxTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="isCutTax != null" >
+        is_cut_tax = #{isCutTax,jdbcType=INTEGER},
+      </if>
+      <if test="taxNTaxableMonths != null" >
+        tax_n_taxable_months = #{taxNTaxableMonths,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCTaxable1Amt != null" >
+        tax_c_taxable1_amt = #{taxCTaxable1Amt,jdbcType=VARCHAR},
+      </if>
+      <if test="taxPreviousTaxYear != null" >
+        tax_previous_tax_year = #{taxPreviousTaxYear,jdbcType=VARCHAR},
+      </if>
+      <if test="taxNExhaustCapacity != null" >
+        tax_n_exhaust_capacity = #{taxNExhaustCapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCCurbWt != null" >
+        tax_c_curb_wt = #{taxCCurbWt,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCutReasonCode != null" >
+        tax_cut_reason_code = #{taxCutReasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCutReason != null" >
+        tax_cut_reason = #{taxCutReason,jdbcType=VARCHAR},
+      </if>
+      <if test="taxVsTaxToolCode != null" >
+        tax_vs_tax_tool_code = #{taxVsTaxToolCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxVsTaxTool != null" >
+        tax_vs_tax_tool = #{taxVsTaxTool,jdbcType=VARCHAR},
+      </if>
+      <if test="abateProp != null" >
+        abate_prop = #{abateProp,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxfree != null" >
+        tax_taxFree = #{taxTaxfree,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxcertno2 != null" >
+        tax_taxCertNo2 = #{taxTaxcertno2,jdbcType=VARCHAR},
+      </if>
+      <if test="taxItemCode != null" >
+        tax_item_code = #{taxItemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxItem != null" >
+        tax_item = #{taxItem,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTBillDate != null" >
+        tax_t_bill_date = #{taxTBillDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taxTaxpayerId != null" >
+        tax_taxpayer_id = #{taxTaxpayerId,jdbcType=INTEGER},
+      </if>
+      <if test="taxTaxpayerCertTypCode != null" >
+        tax_taxpayer_cert_typ_code = #{taxTaxpayerCertTypCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxpayerCertTyp != null" >
+        tax_taxpayer_cert_typ = #{taxTaxpayerCertTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxpayerCertNum != null" >
+        tax_taxpayer_cert_num = #{taxTaxpayerCertNum,jdbcType=INTEGER},
+      </if>
+      <if test="taxTaxpayerName != null" >
+        tax_taxpayer_name = #{taxTaxpayerName,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxpayerAddr != null" >
+        tax_taxpayer_addr = #{taxTaxpayerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxPaymentRecptNum != null" >
+        tax_tax_payment_recpt_num = #{taxTaxPaymentRecptNum,jdbcType=INTEGER},
+      </if>
+      <if test="taxNOverdueAmt != null" >
+        tax_n_overdue_amt = #{taxNOverdueAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="taxNLastyeart != null" >
+        tax_n_lastyeart = #{taxNLastyeart,jdbcType=VARCHAR},
+      </if>
+      <if test="taxNtaxableAnt != null" >
+        tax_ntaxable_ant = #{taxNtaxableAnt,jdbcType=VARCHAR},
+      </if>
+      <if test="cTaxOrgNolocalCode != null" >
+        c_tax_org_nolocal_code = #{cTaxOrgNolocalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cTaxOrgNolocal != null" >
+        c_tax_org_nolocal = #{cTaxOrgNolocal,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTaxAuthorities != null" >
+        tax_tax_authorities = #{taxTaxAuthorities,jdbcType=VARCHAR},
+      </if>
+      <if test="taxTotalTaxes != null" >
+        tax_total_taxes = #{taxTotalTaxes,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.songzhi.carInsure.web.po.TTax" >
+    update t_tax
+    set order_id = #{orderId,jdbcType=INTEGER},
+      tax_vs_tax_mrk_code = #{taxVsTaxMrkCode,jdbcType=VARCHAR},
+      tax_vs_tax_mrk = #{taxVsTaxMrk,jdbcType=VARCHAR},
+      tax_paytax_typ_code = #{taxPaytaxTypCode,jdbcType=VARCHAR},
+      tax_paytax_typ = #{taxPaytaxTyp,jdbcType=VARCHAR},
+      is_cut_tax = #{isCutTax,jdbcType=INTEGER},
+      tax_n_taxable_months = #{taxNTaxableMonths,jdbcType=VARCHAR},
+      tax_c_taxable1_amt = #{taxCTaxable1Amt,jdbcType=VARCHAR},
+      tax_previous_tax_year = #{taxPreviousTaxYear,jdbcType=VARCHAR},
+      tax_n_exhaust_capacity = #{taxNExhaustCapacity,jdbcType=VARCHAR},
+      tax_c_curb_wt = #{taxCCurbWt,jdbcType=VARCHAR},
+      tax_cut_reason_code = #{taxCutReasonCode,jdbcType=VARCHAR},
+      tax_cut_reason = #{taxCutReason,jdbcType=VARCHAR},
+      tax_vs_tax_tool_code = #{taxVsTaxToolCode,jdbcType=VARCHAR},
+      tax_vs_tax_tool = #{taxVsTaxTool,jdbcType=VARCHAR},
+      abate_prop = #{abateProp,jdbcType=VARCHAR},
+      tax_taxFree = #{taxTaxfree,jdbcType=VARCHAR},
+      tax_taxCertNo2 = #{taxTaxcertno2,jdbcType=VARCHAR},
+      tax_item_code = #{taxItemCode,jdbcType=VARCHAR},
+      tax_item = #{taxItem,jdbcType=VARCHAR},
+      tax_t_bill_date = #{taxTBillDate,jdbcType=TIMESTAMP},
+      tax_taxpayer_id = #{taxTaxpayerId,jdbcType=INTEGER},
+      tax_taxpayer_cert_typ_code = #{taxTaxpayerCertTypCode,jdbcType=VARCHAR},
+      tax_taxpayer_cert_typ = #{taxTaxpayerCertTyp,jdbcType=VARCHAR},
+      tax_taxpayer_cert_num = #{taxTaxpayerCertNum,jdbcType=INTEGER},
+      tax_taxpayer_name = #{taxTaxpayerName,jdbcType=VARCHAR},
+      tax_taxpayer_addr = #{taxTaxpayerAddr,jdbcType=VARCHAR},
+      tax_tax_payment_recpt_num = #{taxTaxPaymentRecptNum,jdbcType=INTEGER},
+      tax_n_overdue_amt = #{taxNOverdueAmt,jdbcType=VARCHAR},
+      tax_n_lastyeart = #{taxNLastyeart,jdbcType=VARCHAR},
+      tax_ntaxable_ant = #{taxNtaxableAnt,jdbcType=VARCHAR},
+      c_tax_org_nolocal_code = #{cTaxOrgNolocalCode,jdbcType=VARCHAR},
+      c_tax_org_nolocal = #{cTaxOrgNolocal,jdbcType=VARCHAR},
+      tax_tax_authorities = #{taxTaxAuthorities,jdbcType=VARCHAR},
+      tax_total_taxes = #{taxTotalTaxes,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

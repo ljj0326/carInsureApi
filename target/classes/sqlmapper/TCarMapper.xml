@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.songzhi.carInsure.web.dao.TCarMapper" >
+  <resultMap id="BaseResultMap" type="com.songzhi.carInsure.web.po.TCar" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="car_no" property="carNo" jdbcType="VARCHAR" />
+    <result column="vin" property="vin" jdbcType="VARCHAR" />
+    <result column="engine_no" property="engineNo" jdbcType="VARCHAR" />
+    <result column="c_plate_type_code" property="cPlateTypeCode" jdbcType="VARCHAR" />
+    <result column="c_plate_type" property="cPlateType" jdbcType="VARCHAR" />
+    <result column="t_fst_reg_ym" property="tFstRegYm" jdbcType="TIMESTAMP" />
+    <result column="c_usage_cde_code" property="cUsageCdeCode" jdbcType="VARCHAR" />
+    <result column="c_usage_cde" property="cUsageCde" jdbcType="VARCHAR" />
+    <result column="c_open_cde_code" property="cOpenCdeCode" jdbcType="VARCHAR" />
+    <result column="c_open_cde" property="cOpenCde" jdbcType="VARCHAR" />
+    <result column="c_car_type_code" property="cCarTypeCode" jdbcType="VARCHAR" />
+    <result column="c_car_type" property="cCarType" jdbcType="VARCHAR" />
+    <result column="c_refine_code" property="cRefineCode" jdbcType="VARCHAR" />
+    <result column="c_refine" property="cRefine" jdbcType="VARCHAR" />
+    <result column="c_dri_typ_code" property="cDriTypCode" jdbcType="VARCHAR" />
+    <result column="c__dri_typ" property="cDriTyp" jdbcType="VARCHAR" />
+    <result column="c_model_name" property="cModelName" jdbcType="VARCHAR" />
+    <result column="f_china_name" property="fChinaName" jdbcType="VARCHAR" />
+    <result column="c_china_name" property="cChinaName" jdbcType="VARCHAR" />
+    <result column="n_power" property="nPower" jdbcType="VARCHAR" />
+    <result column="c_made_time" property="cMadeTime" jdbcType="TIMESTAMP" />
+    <result column="c_give_time" property="cGiveTime" jdbcType="TIMESTAMP" />
+    <result column="g_road_away" property="gRoadAway" jdbcType="VARCHAR" />
+    <result column="c_from_time" property="cFromTime" jdbcType="TIMESTAMP" />
+    <result column="c_start_time" property="cStartTime" jdbcType="TIMESTAMP" />
+    <result column="c_use_year" property="cUseYear" jdbcType="VARCHAR" />
+    <result column="n_displacement" property="nDisplacement" jdbcType="VARCHAR" />
+    <result column="n_po_weight" property="nPoWeight" jdbcType="VARCHAR" />
+    <result column="n_tonage" property="nTonage" jdbcType="VARCHAR" />
+    <result column="n_limit_load_person" property="nLimitLoadPerson" jdbcType="VARCHAR" />
+    <result column="c_new_purchase_value" property="cNewPurchaseValue" jdbcType="VARCHAR" />
+    <result column="n_actual_value" property="nActualValue" jdbcType="VARCHAR" />
+    <result column="n_discus_useval" property="nDiscusUseval" jdbcType="VARCHAR" />
+    <result column="c_choose_type_code" property="cChooseTypeCode" jdbcType="VARCHAR" />
+    <result column="c_choose_type" property="cChooseType" jdbcType="VARCHAR" />
+    <result column="c_fuel_type_code" property="cFuelTypeCode" jdbcType="VARCHAR" />
+    <result column="c_fuel_type" property="cFuelType" jdbcType="VARCHAR" />
+    <result column="c_prod_place" property="cProdPlace" jdbcType="INTEGER" />
+    <result column="c_repay" property="cRepay" jdbcType="INTEGER" />
+    <result column="c_pay_years" property="cPayYears" jdbcType="VARCHAR" />
+    <result column="c_transfer_mrk" property="cTransferMrk" jdbcType="VARCHAR" />
+    <result column="is_checked" property="isChecked" jdbcType="INTEGER" />
+    <result column="checker" property="checker" jdbcType="VARCHAR" />
+    <result column="check_time" property="checkTime" jdbcType="TIMESTAMP" />
+    <result column="transfer_time" property="transferTime" jdbcType="TIMESTAMP" />
+    <result column="c_argument_deal" property="cArgumentDeal" jdbcType="VARCHAR" />
+    <result column="is_need_check" property="isNeedCheck" jdbcType="INTEGER" />
+    <result column="court_name" property="courtName" jdbcType="VARCHAR" />
+    <result column="c_personal_mark" property="cPersonalMark" jdbcType="VARCHAR" />
+    <result column="c_fleet_mrk" property="cFleetMrk" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, order_id, car_no, vin, engine_no, c_plate_type_code, c_plate_type, t_fst_reg_ym, 
+    c_usage_cde_code, c_usage_cde, c_open_cde_code, c_open_cde, c_car_type_code, c_car_type, 
+    c_refine_code, c_refine, c_dri_typ_code, c__dri_typ, c_model_name, f_china_name, 
+    c_china_name, n_power, c_made_time, c_give_time, g_road_away, c_from_time, c_start_time, 
+    c_use_year, n_displacement, n_po_weight, n_tonage, n_limit_load_person, c_new_purchase_value, 
+    n_actual_value, n_discus_useval, c_choose_type_code, c_choose_type, c_fuel_type_code, 
+    c_fuel_type, c_prod_place, c_repay, c_pay_years, c_transfer_mrk, is_checked, checker, 
+    check_time, transfer_time, c_argument_deal, is_need_check, court_name, c_personal_mark, 
+    c_fleet_mrk
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.songzhi.carInsure.web.po.TCarExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_car
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_car
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_car
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.songzhi.carInsure.web.po.TCarExample" >
+    delete from t_car
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.songzhi.carInsure.web.po.TCar" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_car (order_id, car_no, vin, 
+      engine_no, c_plate_type_code, c_plate_type, 
+      t_fst_reg_ym, c_usage_cde_code, c_usage_cde, 
+      c_open_cde_code, c_open_cde, c_car_type_code, 
+      c_car_type, c_refine_code, c_refine, 
+      c_dri_typ_code, c__dri_typ, c_model_name, 
+      f_china_name, c_china_name, n_power, 
+      c_made_time, c_give_time, g_road_away, 
+      c_from_time, c_start_time, c_use_year, 
+      n_displacement, n_po_weight, n_tonage, 
+      n_limit_load_person, c_new_purchase_value, n_actual_value, 
+      n_discus_useval, c_choose_type_code, c_choose_type, 
+      c_fuel_type_code, c_fuel_type, c_prod_place, 
+      c_repay, c_pay_years, c_transfer_mrk, 
+      is_checked, checker, check_time, 
+      transfer_time, c_argument_deal, is_need_check, 
+      court_name, c_personal_mark, c_fleet_mrk
+      )
+    values (#{orderId,jdbcType=INTEGER}, #{carNo,jdbcType=VARCHAR}, #{vin,jdbcType=VARCHAR}, 
+      #{engineNo,jdbcType=VARCHAR}, #{cPlateTypeCode,jdbcType=VARCHAR}, #{cPlateType,jdbcType=VARCHAR}, 
+      #{tFstRegYm,jdbcType=TIMESTAMP}, #{cUsageCdeCode,jdbcType=VARCHAR}, #{cUsageCde,jdbcType=VARCHAR}, 
+      #{cOpenCdeCode,jdbcType=VARCHAR}, #{cOpenCde,jdbcType=VARCHAR}, #{cCarTypeCode,jdbcType=VARCHAR}, 
+      #{cCarType,jdbcType=VARCHAR}, #{cRefineCode,jdbcType=VARCHAR}, #{cRefine,jdbcType=VARCHAR}, 
+      #{cDriTypCode,jdbcType=VARCHAR}, #{cDriTyp,jdbcType=VARCHAR}, #{cModelName,jdbcType=VARCHAR}, 
+      #{fChinaName,jdbcType=VARCHAR}, #{cChinaName,jdbcType=VARCHAR}, #{nPower,jdbcType=VARCHAR}, 
+      #{cMadeTime,jdbcType=TIMESTAMP}, #{cGiveTime,jdbcType=TIMESTAMP}, #{gRoadAway,jdbcType=VARCHAR}, 
+      #{cFromTime,jdbcType=TIMESTAMP}, #{cStartTime,jdbcType=TIMESTAMP}, #{cUseYear,jdbcType=VARCHAR}, 
+      #{nDisplacement,jdbcType=VARCHAR}, #{nPoWeight,jdbcType=VARCHAR}, #{nTonage,jdbcType=VARCHAR}, 
+      #{nLimitLoadPerson,jdbcType=VARCHAR}, #{cNewPurchaseValue,jdbcType=VARCHAR}, #{nActualValue,jdbcType=VARCHAR}, 
+      #{nDiscusUseval,jdbcType=VARCHAR}, #{cChooseTypeCode,jdbcType=VARCHAR}, #{cChooseType,jdbcType=VARCHAR}, 
+      #{cFuelTypeCode,jdbcType=VARCHAR}, #{cFuelType,jdbcType=VARCHAR}, #{cProdPlace,jdbcType=INTEGER}, 
+      #{cRepay,jdbcType=INTEGER}, #{cPayYears,jdbcType=VARCHAR}, #{cTransferMrk,jdbcType=VARCHAR}, 
+      #{isChecked,jdbcType=INTEGER}, #{checker,jdbcType=VARCHAR}, #{checkTime,jdbcType=TIMESTAMP}, 
+      #{transferTime,jdbcType=TIMESTAMP}, #{cArgumentDeal,jdbcType=VARCHAR}, #{isNeedCheck,jdbcType=INTEGER}, 
+      #{courtName,jdbcType=VARCHAR}, #{cPersonalMark,jdbcType=VARCHAR}, #{cFleetMrk,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.songzhi.carInsure.web.po.TCar" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_car
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="carNo != null" >
+        car_no,
+      </if>
+      <if test="vin != null" >
+        vin,
+      </if>
+      <if test="engineNo != null" >
+        engine_no,
+      </if>
+      <if test="cPlateTypeCode != null" >
+        c_plate_type_code,
+      </if>
+      <if test="cPlateType != null" >
+        c_plate_type,
+      </if>
+      <if test="tFstRegYm != null" >
+        t_fst_reg_ym,
+      </if>
+      <if test="cUsageCdeCode != null" >
+        c_usage_cde_code,
+      </if>
+      <if test="cUsageCde != null" >
+        c_usage_cde,
+      </if>
+      <if test="cOpenCdeCode != null" >
+        c_open_cde_code,
+      </if>
+      <if test="cOpenCde != null" >
+        c_open_cde,
+      </if>
+      <if test="cCarTypeCode != null" >
+        c_car_type_code,
+      </if>
+      <if test="cCarType != null" >
+        c_car_type,
+      </if>
+      <if test="cRefineCode != null" >
+        c_refine_code,
+      </if>
+      <if test="cRefine != null" >
+        c_refine,
+      </if>
+      <if test="cDriTypCode != null" >
+        c_dri_typ_code,
+      </if>
+      <if test="cDriTyp != null" >
+        c__dri_typ,
+      </if>
+      <if test="cModelName != null" >
+        c_model_name,
+      </if>
+      <if test="fChinaName != null" >
+        f_china_name,
+      </if>
+      <if test="cChinaName != null" >
+        c_china_name,
+      </if>
+      <if test="nPower != null" >
+        n_power,
+      </if>
+      <if test="cMadeTime != null" >
+        c_made_time,
+      </if>
+      <if test="cGiveTime != null" >
+        c_give_time,
+      </if>
+      <if test="gRoadAway != null" >
+        g_road_away,
+      </if>
+      <if test="cFromTime != null" >
+        c_from_time,
+      </if>
+      <if test="cStartTime != null" >
+        c_start_time,
+      </if>
+      <if test="cUseYear != null" >
+        c_use_year,
+      </if>
+      <if test="nDisplacement != null" >
+        n_displacement,
+      </if>
+      <if test="nPoWeight != null" >
+        n_po_weight,
+      </if>
+      <if test="nTonage != null" >
+        n_tonage,
+      </if>
+      <if test="nLimitLoadPerson != null" >
+        n_limit_load_person,
+      </if>
+      <if test="cNewPurchaseValue != null" >
+        c_new_purchase_value,
+      </if>
+      <if test="nActualValue != null" >
+        n_actual_value,
+      </if>
+      <if test="nDiscusUseval != null" >
+        n_discus_useval,
+      </if>
+      <if test="cChooseTypeCode != null" >
+        c_choose_type_code,
+      </if>
+      <if test="cChooseType != null" >
+        c_choose_type,
+      </if>
+      <if test="cFuelTypeCode != null" >
+        c_fuel_type_code,
+      </if>
+      <if test="cFuelType != null" >
+        c_fuel_type,
+      </if>
+      <if test="cProdPlace != null" >
+        c_prod_place,
+      </if>
+      <if test="cRepay != null" >
+        c_repay,
+      </if>
+      <if test="cPayYears != null" >
+        c_pay_years,
+      </if>
+      <if test="cTransferMrk != null" >
+        c_transfer_mrk,
+      </if>
+      <if test="isChecked != null" >
+        is_checked,
+      </if>
+      <if test="checker != null" >
+        checker,
+      </if>
+      <if test="checkTime != null" >
+        check_time,
+      </if>
+      <if test="transferTime != null" >
+        transfer_time,
+      </if>
+      <if test="cArgumentDeal != null" >
+        c_argument_deal,
+      </if>
+      <if test="isNeedCheck != null" >
+        is_need_check,
+      </if>
+      <if test="courtName != null" >
+        court_name,
+      </if>
+      <if test="cPersonalMark != null" >
+        c_personal_mark,
+      </if>
+      <if test="cFleetMrk != null" >
+        c_fleet_mrk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="carNo != null" >
+        #{carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="engineNo != null" >
+        #{engineNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cPlateTypeCode != null" >
+        #{cPlateTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cPlateType != null" >
+        #{cPlateType,jdbcType=VARCHAR},
+      </if>
+      <if test="tFstRegYm != null" >
+        #{tFstRegYm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cUsageCdeCode != null" >
+        #{cUsageCdeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cUsageCde != null" >
+        #{cUsageCde,jdbcType=VARCHAR},
+      </if>
+      <if test="cOpenCdeCode != null" >
+        #{cOpenCdeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cOpenCde != null" >
+        #{cOpenCde,jdbcType=VARCHAR},
+      </if>
+      <if test="cCarTypeCode != null" >
+        #{cCarTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cCarType != null" >
+        #{cCarType,jdbcType=VARCHAR},
+      </if>
+      <if test="cRefineCode != null" >
+        #{cRefineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cRefine != null" >
+        #{cRefine,jdbcType=VARCHAR},
+      </if>
+      <if test="cDriTypCode != null" >
+        #{cDriTypCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cDriTyp != null" >
+        #{cDriTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="cModelName != null" >
+        #{cModelName,jdbcType=VARCHAR},
+      </if>
+      <if test="fChinaName != null" >
+        #{fChinaName,jdbcType=VARCHAR},
+      </if>
+      <if test="cChinaName != null" >
+        #{cChinaName,jdbcType=VARCHAR},
+      </if>
+      <if test="nPower != null" >
+        #{nPower,jdbcType=VARCHAR},
+      </if>
+      <if test="cMadeTime != null" >
+        #{cMadeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cGiveTime != null" >
+        #{cGiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gRoadAway != null" >
+        #{gRoadAway,jdbcType=VARCHAR},
+      </if>
+      <if test="cFromTime != null" >
+        #{cFromTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cStartTime != null" >
+        #{cStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cUseYear != null" >
+        #{cUseYear,jdbcType=VARCHAR},
+      </if>
+      <if test="nDisplacement != null" >
+        #{nDisplacement,jdbcType=VARCHAR},
+      </if>
+      <if test="nPoWeight != null" >
+        #{nPoWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="nTonage != null" >
+        #{nTonage,jdbcType=VARCHAR},
+      </if>
+      <if test="nLimitLoadPerson != null" >
+        #{nLimitLoadPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cNewPurchaseValue != null" >
+        #{cNewPurchaseValue,jdbcType=VARCHAR},
+      </if>
+      <if test="nActualValue != null" >
+        #{nActualValue,jdbcType=VARCHAR},
+      </if>
+      <if test="nDiscusUseval != null" >
+        #{nDiscusUseval,jdbcType=VARCHAR},
+      </if>
+      <if test="cChooseTypeCode != null" >
+        #{cChooseTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cChooseType != null" >
+        #{cChooseType,jdbcType=VARCHAR},
+      </if>
+      <if test="cFuelTypeCode != null" >
+        #{cFuelTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cFuelType != null" >
+        #{cFuelType,jdbcType=VARCHAR},
+      </if>
+      <if test="cProdPlace != null" >
+        #{cProdPlace,jdbcType=INTEGER},
+      </if>
+      <if test="cRepay != null" >
+        #{cRepay,jdbcType=INTEGER},
+      </if>
+      <if test="cPayYears != null" >
+        #{cPayYears,jdbcType=VARCHAR},
+      </if>
+      <if test="cTransferMrk != null" >
+        #{cTransferMrk,jdbcType=VARCHAR},
+      </if>
+      <if test="isChecked != null" >
+        #{isChecked,jdbcType=INTEGER},
+      </if>
+      <if test="checker != null" >
+        #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transferTime != null" >
+        #{transferTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cArgumentDeal != null" >
+        #{cArgumentDeal,jdbcType=VARCHAR},
+      </if>
+      <if test="isNeedCheck != null" >
+        #{isNeedCheck,jdbcType=INTEGER},
+      </if>
+      <if test="courtName != null" >
+        #{courtName,jdbcType=VARCHAR},
+      </if>
+      <if test="cPersonalMark != null" >
+        #{cPersonalMark,jdbcType=VARCHAR},
+      </if>
+      <if test="cFleetMrk != null" >
+        #{cFleetMrk,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.songzhi.carInsure.web.po.TCarExample" resultType="java.lang.Integer" >
+    select count(*) from t_car
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_car
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.carNo != null" >
+        car_no = #{record.carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vin != null" >
+        vin = #{record.vin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineNo != null" >
+        engine_no = #{record.engineNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cPlateTypeCode != null" >
+        c_plate_type_code = #{record.cPlateTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cPlateType != null" >
+        c_plate_type = #{record.cPlateType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tFstRegYm != null" >
+        t_fst_reg_ym = #{record.tFstRegYm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cUsageCdeCode != null" >
+        c_usage_cde_code = #{record.cUsageCdeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cUsageCde != null" >
+        c_usage_cde = #{record.cUsageCde,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cOpenCdeCode != null" >
+        c_open_cde_code = #{record.cOpenCdeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cOpenCde != null" >
+        c_open_cde = #{record.cOpenCde,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCarTypeCode != null" >
+        c_car_type_code = #{record.cCarTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cCarType != null" >
+        c_car_type = #{record.cCarType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cRefineCode != null" >
+        c_refine_code = #{record.cRefineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cRefine != null" >
+        c_refine = #{record.cRefine,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDriTypCode != null" >
+        c_dri_typ_code = #{record.cDriTypCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cDriTyp != null" >
+        c__dri_typ = #{record.cDriTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cModelName != null" >
+        c_model_name = #{record.cModelName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fChinaName != null" >
+        f_china_name = #{record.fChinaName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cChinaName != null" >
+        c_china_name = #{record.cChinaName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nPower != null" >
+        n_power = #{record.nPower,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cMadeTime != null" >
+        c_made_time = #{record.cMadeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cGiveTime != null" >
+        c_give_time = #{record.cGiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gRoadAway != null" >
+        g_road_away = #{record.gRoadAway,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cFromTime != null" >
+        c_from_time = #{record.cFromTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cStartTime != null" >
+        c_start_time = #{record.cStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cUseYear != null" >
+        c_use_year = #{record.cUseYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nDisplacement != null" >
+        n_displacement = #{record.nDisplacement,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nPoWeight != null" >
+        n_po_weight = #{record.nPoWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nTonage != null" >
+        n_tonage = #{record.nTonage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nLimitLoadPerson != null" >
+        n_limit_load_person = #{record.nLimitLoadPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cNewPurchaseValue != null" >
+        c_new_purchase_value = #{record.cNewPurchaseValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nActualValue != null" >
+        n_actual_value = #{record.nActualValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nDiscusUseval != null" >
+        n_discus_useval = #{record.nDiscusUseval,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cChooseTypeCode != null" >
+        c_choose_type_code = #{record.cChooseTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cChooseType != null" >
+        c_choose_type = #{record.cChooseType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cFuelTypeCode != null" >
+        c_fuel_type_code = #{record.cFuelTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cFuelType != null" >
+        c_fuel_type = #{record.cFuelType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cProdPlace != null" >
+        c_prod_place = #{record.cProdPlace,jdbcType=INTEGER},
+      </if>
+      <if test="record.cRepay != null" >
+        c_repay = #{record.cRepay,jdbcType=INTEGER},
+      </if>
+      <if test="record.cPayYears != null" >
+        c_pay_years = #{record.cPayYears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cTransferMrk != null" >
+        c_transfer_mrk = #{record.cTransferMrk,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isChecked != null" >
+        is_checked = #{record.isChecked,jdbcType=INTEGER},
+      </if>
+      <if test="record.checker != null" >
+        checker = #{record.checker,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkTime != null" >
+        check_time = #{record.checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.transferTime != null" >
+        transfer_time = #{record.transferTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cArgumentDeal != null" >
+        c_argument_deal = #{record.cArgumentDeal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isNeedCheck != null" >
+        is_need_check = #{record.isNeedCheck,jdbcType=INTEGER},
+      </if>
+      <if test="record.courtName != null" >
+        court_name = #{record.courtName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cPersonalMark != null" >
+        c_personal_mark = #{record.cPersonalMark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cFleetMrk != null" >
+        c_fleet_mrk = #{record.cFleetMrk,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_car
+    set id = #{record.id,jdbcType=INTEGER},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      car_no = #{record.carNo,jdbcType=VARCHAR},
+      vin = #{record.vin,jdbcType=VARCHAR},
+      engine_no = #{record.engineNo,jdbcType=VARCHAR},
+      c_plate_type_code = #{record.cPlateTypeCode,jdbcType=VARCHAR},
+      c_plate_type = #{record.cPlateType,jdbcType=VARCHAR},
+      t_fst_reg_ym = #{record.tFstRegYm,jdbcType=TIMESTAMP},
+      c_usage_cde_code = #{record.cUsageCdeCode,jdbcType=VARCHAR},
+      c_usage_cde = #{record.cUsageCde,jdbcType=VARCHAR},
+      c_open_cde_code = #{record.cOpenCdeCode,jdbcType=VARCHAR},
+      c_open_cde = #{record.cOpenCde,jdbcType=VARCHAR},
+      c_car_type_code = #{record.cCarTypeCode,jdbcType=VARCHAR},
+      c_car_type = #{record.cCarType,jdbcType=VARCHAR},
+      c_refine_code = #{record.cRefineCode,jdbcType=VARCHAR},
+      c_refine = #{record.cRefine,jdbcType=VARCHAR},
+      c_dri_typ_code = #{record.cDriTypCode,jdbcType=VARCHAR},
+      c__dri_typ = #{record.cDriTyp,jdbcType=VARCHAR},
+      c_model_name = #{record.cModelName,jdbcType=VARCHAR},
+      f_china_name = #{record.fChinaName,jdbcType=VARCHAR},
+      c_china_name = #{record.cChinaName,jdbcType=VARCHAR},
+      n_power = #{record.nPower,jdbcType=VARCHAR},
+      c_made_time = #{record.cMadeTime,jdbcType=TIMESTAMP},
+      c_give_time = #{record.cGiveTime,jdbcType=TIMESTAMP},
+      g_road_away = #{record.gRoadAway,jdbcType=VARCHAR},
+      c_from_time = #{record.cFromTime,jdbcType=TIMESTAMP},
+      c_start_time = #{record.cStartTime,jdbcType=TIMESTAMP},
+      c_use_year = #{record.cUseYear,jdbcType=VARCHAR},
+      n_displacement = #{record.nDisplacement,jdbcType=VARCHAR},
+      n_po_weight = #{record.nPoWeight,jdbcType=VARCHAR},
+      n_tonage = #{record.nTonage,jdbcType=VARCHAR},
+      n_limit_load_person = #{record.nLimitLoadPerson,jdbcType=VARCHAR},
+      c_new_purchase_value = #{record.cNewPurchaseValue,jdbcType=VARCHAR},
+      n_actual_value = #{record.nActualValue,jdbcType=VARCHAR},
+      n_discus_useval = #{record.nDiscusUseval,jdbcType=VARCHAR},
+      c_choose_type_code = #{record.cChooseTypeCode,jdbcType=VARCHAR},
+      c_choose_type = #{record.cChooseType,jdbcType=VARCHAR},
+      c_fuel_type_code = #{record.cFuelTypeCode,jdbcType=VARCHAR},
+      c_fuel_type = #{record.cFuelType,jdbcType=VARCHAR},
+      c_prod_place = #{record.cProdPlace,jdbcType=INTEGER},
+      c_repay = #{record.cRepay,jdbcType=INTEGER},
+      c_pay_years = #{record.cPayYears,jdbcType=VARCHAR},
+      c_transfer_mrk = #{record.cTransferMrk,jdbcType=VARCHAR},
+      is_checked = #{record.isChecked,jdbcType=INTEGER},
+      checker = #{record.checker,jdbcType=VARCHAR},
+      check_time = #{record.checkTime,jdbcType=TIMESTAMP},
+      transfer_time = #{record.transferTime,jdbcType=TIMESTAMP},
+      c_argument_deal = #{record.cArgumentDeal,jdbcType=VARCHAR},
+      is_need_check = #{record.isNeedCheck,jdbcType=INTEGER},
+      court_name = #{record.courtName,jdbcType=VARCHAR},
+      c_personal_mark = #{record.cPersonalMark,jdbcType=VARCHAR},
+      c_fleet_mrk = #{record.cFleetMrk,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.songzhi.carInsure.web.po.TCar" >
+    update t_car
+    <set >
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="carNo != null" >
+        car_no = #{carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="engineNo != null" >
+        engine_no = #{engineNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cPlateTypeCode != null" >
+        c_plate_type_code = #{cPlateTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cPlateType != null" >
+        c_plate_type = #{cPlateType,jdbcType=VARCHAR},
+      </if>
+      <if test="tFstRegYm != null" >
+        t_fst_reg_ym = #{tFstRegYm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cUsageCdeCode != null" >
+        c_usage_cde_code = #{cUsageCdeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cUsageCde != null" >
+        c_usage_cde = #{cUsageCde,jdbcType=VARCHAR},
+      </if>
+      <if test="cOpenCdeCode != null" >
+        c_open_cde_code = #{cOpenCdeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cOpenCde != null" >
+        c_open_cde = #{cOpenCde,jdbcType=VARCHAR},
+      </if>
+      <if test="cCarTypeCode != null" >
+        c_car_type_code = #{cCarTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cCarType != null" >
+        c_car_type = #{cCarType,jdbcType=VARCHAR},
+      </if>
+      <if test="cRefineCode != null" >
+        c_refine_code = #{cRefineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cRefine != null" >
+        c_refine = #{cRefine,jdbcType=VARCHAR},
+      </if>
+      <if test="cDriTypCode != null" >
+        c_dri_typ_code = #{cDriTypCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cDriTyp != null" >
+        c__dri_typ = #{cDriTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="cModelName != null" >
+        c_model_name = #{cModelName,jdbcType=VARCHAR},
+      </if>
+      <if test="fChinaName != null" >
+        f_china_name = #{fChinaName,jdbcType=VARCHAR},
+      </if>
+      <if test="cChinaName != null" >
+        c_china_name = #{cChinaName,jdbcType=VARCHAR},
+      </if>
+      <if test="nPower != null" >
+        n_power = #{nPower,jdbcType=VARCHAR},
+      </if>
+      <if test="cMadeTime != null" >
+        c_made_time = #{cMadeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cGiveTime != null" >
+        c_give_time = #{cGiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gRoadAway != null" >
+        g_road_away = #{gRoadAway,jdbcType=VARCHAR},
+      </if>
+      <if test="cFromTime != null" >
+        c_from_time = #{cFromTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cStartTime != null" >
+        c_start_time = #{cStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cUseYear != null" >
+        c_use_year = #{cUseYear,jdbcType=VARCHAR},
+      </if>
+      <if test="nDisplacement != null" >
+        n_displacement = #{nDisplacement,jdbcType=VARCHAR},
+      </if>
+      <if test="nPoWeight != null" >
+        n_po_weight = #{nPoWeight,jdbcType=VARCHAR},
+      </if>
+      <if test="nTonage != null" >
+        n_tonage = #{nTonage,jdbcType=VARCHAR},
+      </if>
+      <if test="nLimitLoadPerson != null" >
+        n_limit_load_person = #{nLimitLoadPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cNewPurchaseValue != null" >
+        c_new_purchase_value = #{cNewPurchaseValue,jdbcType=VARCHAR},
+      </if>
+      <if test="nActualValue != null" >
+        n_actual_value = #{nActualValue,jdbcType=VARCHAR},
+      </if>
+      <if test="nDiscusUseval != null" >
+        n_discus_useval = #{nDiscusUseval,jdbcType=VARCHAR},
+      </if>
+      <if test="cChooseTypeCode != null" >
+        c_choose_type_code = #{cChooseTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cChooseType != null" >
+        c_choose_type = #{cChooseType,jdbcType=VARCHAR},
+      </if>
+      <if test="cFuelTypeCode != null" >
+        c_fuel_type_code = #{cFuelTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cFuelType != null" >
+        c_fuel_type = #{cFuelType,jdbcType=VARCHAR},
+      </if>
+      <if test="cProdPlace != null" >
+        c_prod_place = #{cProdPlace,jdbcType=INTEGER},
+      </if>
+      <if test="cRepay != null" >
+        c_repay = #{cRepay,jdbcType=INTEGER},
+      </if>
+      <if test="cPayYears != null" >
+        c_pay_years = #{cPayYears,jdbcType=VARCHAR},
+      </if>
+      <if test="cTransferMrk != null" >
+        c_transfer_mrk = #{cTransferMrk,jdbcType=VARCHAR},
+      </if>
+      <if test="isChecked != null" >
+        is_checked = #{isChecked,jdbcType=INTEGER},
+      </if>
+      <if test="checker != null" >
+        checker = #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="checkTime != null" >
+        check_time = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transferTime != null" >
+        transfer_time = #{transferTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cArgumentDeal != null" >
+        c_argument_deal = #{cArgumentDeal,jdbcType=VARCHAR},
+      </if>
+      <if test="isNeedCheck != null" >
+        is_need_check = #{isNeedCheck,jdbcType=INTEGER},
+      </if>
+      <if test="courtName != null" >
+        court_name = #{courtName,jdbcType=VARCHAR},
+      </if>
+      <if test="cPersonalMark != null" >
+        c_personal_mark = #{cPersonalMark,jdbcType=VARCHAR},
+      </if>
+      <if test="cFleetMrk != null" >
+        c_fleet_mrk = #{cFleetMrk,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.songzhi.carInsure.web.po.TCar" >
+    update t_car
+    set order_id = #{orderId,jdbcType=INTEGER},
+      car_no = #{carNo,jdbcType=VARCHAR},
+      vin = #{vin,jdbcType=VARCHAR},
+      engine_no = #{engineNo,jdbcType=VARCHAR},
+      c_plate_type_code = #{cPlateTypeCode,jdbcType=VARCHAR},
+      c_plate_type = #{cPlateType,jdbcType=VARCHAR},
+      t_fst_reg_ym = #{tFstRegYm,jdbcType=TIMESTAMP},
+      c_usage_cde_code = #{cUsageCdeCode,jdbcType=VARCHAR},
+      c_usage_cde = #{cUsageCde,jdbcType=VARCHAR},
+      c_open_cde_code = #{cOpenCdeCode,jdbcType=VARCHAR},
+      c_open_cde = #{cOpenCde,jdbcType=VARCHAR},
+      c_car_type_code = #{cCarTypeCode,jdbcType=VARCHAR},
+      c_car_type = #{cCarType,jdbcType=VARCHAR},
+      c_refine_code = #{cRefineCode,jdbcType=VARCHAR},
+      c_refine = #{cRefine,jdbcType=VARCHAR},
+      c_dri_typ_code = #{cDriTypCode,jdbcType=VARCHAR},
+      c__dri_typ = #{cDriTyp,jdbcType=VARCHAR},
+      c_model_name = #{cModelName,jdbcType=VARCHAR},
+      f_china_name = #{fChinaName,jdbcType=VARCHAR},
+      c_china_name = #{cChinaName,jdbcType=VARCHAR},
+      n_power = #{nPower,jdbcType=VARCHAR},
+      c_made_time = #{cMadeTime,jdbcType=TIMESTAMP},
+      c_give_time = #{cGiveTime,jdbcType=TIMESTAMP},
+      g_road_away = #{gRoadAway,jdbcType=VARCHAR},
+      c_from_time = #{cFromTime,jdbcType=TIMESTAMP},
+      c_start_time = #{cStartTime,jdbcType=TIMESTAMP},
+      c_use_year = #{cUseYear,jdbcType=VARCHAR},
+      n_displacement = #{nDisplacement,jdbcType=VARCHAR},
+      n_po_weight = #{nPoWeight,jdbcType=VARCHAR},
+      n_tonage = #{nTonage,jdbcType=VARCHAR},
+      n_limit_load_person = #{nLimitLoadPerson,jdbcType=VARCHAR},
+      c_new_purchase_value = #{cNewPurchaseValue,jdbcType=VARCHAR},
+      n_actual_value = #{nActualValue,jdbcType=VARCHAR},
+      n_discus_useval = #{nDiscusUseval,jdbcType=VARCHAR},
+      c_choose_type_code = #{cChooseTypeCode,jdbcType=VARCHAR},
+      c_choose_type = #{cChooseType,jdbcType=VARCHAR},
+      c_fuel_type_code = #{cFuelTypeCode,jdbcType=VARCHAR},
+      c_fuel_type = #{cFuelType,jdbcType=VARCHAR},
+      c_prod_place = #{cProdPlace,jdbcType=INTEGER},
+      c_repay = #{cRepay,jdbcType=INTEGER},
+      c_pay_years = #{cPayYears,jdbcType=VARCHAR},
+      c_transfer_mrk = #{cTransferMrk,jdbcType=VARCHAR},
+      is_checked = #{isChecked,jdbcType=INTEGER},
+      checker = #{checker,jdbcType=VARCHAR},
+      check_time = #{checkTime,jdbcType=TIMESTAMP},
+      transfer_time = #{transferTime,jdbcType=TIMESTAMP},
+      c_argument_deal = #{cArgumentDeal,jdbcType=VARCHAR},
+      is_need_check = #{isNeedCheck,jdbcType=INTEGER},
+      court_name = #{courtName,jdbcType=VARCHAR},
+      c_personal_mark = #{cPersonalMark,jdbcType=VARCHAR},
+      c_fleet_mrk = #{cFleetMrk,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

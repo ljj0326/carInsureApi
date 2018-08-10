@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.songzhi.carInsure.web.dao.TSpecialInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.songzhi.carInsure.web.po.TSpecialInfo" >
+    <id column="si_id" property="siId" jdbcType="INTEGER" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="si_specLi_code" property="siSpecliCode" jdbcType="VARCHAR" />
+    <result column="si_specLi_info" property="siSpecliInfo" jdbcType="VARCHAR" />
+    <result column="si_specLi_type" property="siSpecliType" jdbcType="INTEGER" />
+    <result column="si_str" property="siStr" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    si_id, order_id, si_specLi_code, si_specLi_info, si_specLi_type, si_str
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.songzhi.carInsure.web.po.TSpecialInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_special_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_special_info
+    where si_id = #{siId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_special_info
+    where si_id = #{siId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.songzhi.carInsure.web.po.TSpecialInfoExample" >
+    delete from t_special_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.songzhi.carInsure.web.po.TSpecialInfo" >
+    insert into t_special_info (si_id, order_id, si_specLi_code, 
+      si_specLi_info, si_specLi_type, si_str
+      )
+    values (#{siId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{siSpecliCode,jdbcType=VARCHAR}, 
+      #{siSpecliInfo,jdbcType=VARCHAR}, #{siSpecliType,jdbcType=INTEGER}, #{siStr,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.songzhi.carInsure.web.po.TSpecialInfo" >
+    insert into t_special_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="siId != null" >
+        si_id,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="siSpecliCode != null" >
+        si_specLi_code,
+      </if>
+      <if test="siSpecliInfo != null" >
+        si_specLi_info,
+      </if>
+      <if test="siSpecliType != null" >
+        si_specLi_type,
+      </if>
+      <if test="siStr != null" >
+        si_str,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="siId != null" >
+        #{siId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="siSpecliCode != null" >
+        #{siSpecliCode,jdbcType=VARCHAR},
+      </if>
+      <if test="siSpecliInfo != null" >
+        #{siSpecliInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="siSpecliType != null" >
+        #{siSpecliType,jdbcType=INTEGER},
+      </if>
+      <if test="siStr != null" >
+        #{siStr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.songzhi.carInsure.web.po.TSpecialInfoExample" resultType="java.lang.Integer" >
+    select count(*) from t_special_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_special_info
+    <set >
+      <if test="record.siId != null" >
+        si_id = #{record.siId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.siSpecliCode != null" >
+        si_specLi_code = #{record.siSpecliCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.siSpecliInfo != null" >
+        si_specLi_info = #{record.siSpecliInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.siSpecliType != null" >
+        si_specLi_type = #{record.siSpecliType,jdbcType=INTEGER},
+      </if>
+      <if test="record.siStr != null" >
+        si_str = #{record.siStr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_special_info
+    set si_id = #{record.siId,jdbcType=INTEGER},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      si_specLi_code = #{record.siSpecliCode,jdbcType=VARCHAR},
+      si_specLi_info = #{record.siSpecliInfo,jdbcType=VARCHAR},
+      si_specLi_type = #{record.siSpecliType,jdbcType=INTEGER},
+      si_str = #{record.siStr,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.songzhi.carInsure.web.po.TSpecialInfo" >
+    update t_special_info
+    <set >
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="siSpecliCode != null" >
+        si_specLi_code = #{siSpecliCode,jdbcType=VARCHAR},
+      </if>
+      <if test="siSpecliInfo != null" >
+        si_specLi_info = #{siSpecliInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="siSpecliType != null" >
+        si_specLi_type = #{siSpecliType,jdbcType=INTEGER},
+      </if>
+      <if test="siStr != null" >
+        si_str = #{siStr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where si_id = #{siId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.songzhi.carInsure.web.po.TSpecialInfo" >
+    update t_special_info
+    set order_id = #{orderId,jdbcType=INTEGER},
+      si_specLi_code = #{siSpecliCode,jdbcType=VARCHAR},
+      si_specLi_info = #{siSpecliInfo,jdbcType=VARCHAR},
+      si_specLi_type = #{siSpecliType,jdbcType=INTEGER},
+      si_str = #{siStr,jdbcType=VARCHAR}
+    where si_id = #{siId,jdbcType=INTEGER}
+  </update>
+</mapper>
